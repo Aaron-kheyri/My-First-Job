@@ -4,17 +4,23 @@ const homeScreen = document.getElementById("homeScreen");
 const characterScreen = document.getElementById("characterScreen");
 const jobScreen = document.getElementById("jobScreen");
 const shiftScreen = document.getElementById("shiftScreen");
+const payScreen = document.getElementById("payScreen");
 
 
 let playerName = "";
 let playerJob = "";
+let playerPay = 0;
+
 
 let money = 0;
 let experience = 0;
 let energy = 100;
 
 
-startButton.onclick = function () {
+
+// START GAME
+
+startButton.onclick = function() {
 
     homeScreen.style.display = "none";
     characterScreen.style.display = "block";
@@ -22,7 +28,11 @@ startButton.onclick = function () {
 };
 
 
-document.getElementById("continueButton").onclick = function () {
+
+// ENTER NAME
+
+document.getElementById("continueButton").onclick = function() {
+
 
     playerName = document.getElementById("playerName").value;
 
@@ -30,12 +40,14 @@ document.getElementById("continueButton").onclick = function () {
     if (playerName === "") {
 
         alert("Please enter your name!");
+
         return;
 
     }
 
 
     characterScreen.style.display = "none";
+
     jobScreen.style.display = "block";
 
 
@@ -45,6 +57,9 @@ document.getElementById("continueButton").onclick = function () {
 };
 
 
+
+
+// JOB BUTTONS
 
 const jobButtons = document.querySelectorAll(".jobButton");
 
@@ -71,31 +86,44 @@ jobButtons[2].onclick = function() {
 
 
 
+
+
 function chooseJob(job, pay) {
+
 
     playerJob = job;
 
+    playerPay = pay;
+
+
     jobScreen.style.display = "none";
+
     shiftScreen.style.display = "block";
 
 
     document.getElementById("jobWelcome").innerHTML =
     playerName + ", you are now a " + playerJob + "!";
 
+
 }
 
 
+
+
+// START SHIFT
 
 document.getElementById("startShiftButton").onclick = function() {
 
 
     document.getElementById("startShiftButton").style.display = "none";
 
+
     document.getElementById("shiftEvent").style.display = "block";
 
 
     document.getElementById("eventText").innerHTML =
     "Your manager asks you to help a customer who needs assistance.";
+
 
 
     document.getElementById("choice1").innerHTML =
@@ -109,40 +137,67 @@ document.getElementById("startShiftButton").onclick = function() {
     document.getElementById("choice3").innerHTML =
     "Ignore the customer";
 
+
 };
 
+
+
+
+
+// CHOICES
 
 
 document.getElementById("choice1").onclick = function() {
 
-    completeTask(10, 5, "Great work! The customer appreciated your help.");
+
+    completeTask(
+        10,
+        95,
+        "Great work! The customer appreciated your help."
+    );
 
 };
+
 
 
 document.getElementById("choice2").onclick = function() {
 
-    completeTask(5, 10, "Good decision! Asking for help shows responsibility.");
+
+    completeTask(
+        5,
+        90,
+        "Good decision! Asking questions shows responsibility."
+    );
 
 };
+
 
 
 document.getElementById("choice3").onclick = function() {
 
-    completeTask(-5, 0, "Your manager noticed you could have helped more.");
+
+    completeTask(
+        0,
+        85,
+        "Your manager noticed you could have helped more."
+    );
 
 };
 
 
 
-function completeTask(xpChange, energyChange, message) {
 
 
-    experience += xpChange;
 
-    energy += energyChange;
+function completeTask(xp, newEnergy, message) {
+
+
+    experience += xp;
+
+    energy = newEnergy;
 
     money += 50;
+
 
 
     document.getElementById("experience").innerHTML = experience;
@@ -152,10 +207,47 @@ function completeTask(xpChange, energyChange, message) {
     document.getElementById("money").innerHTML = money;
 
 
-    document.getElementById("resultText").innerHTML = message +
-    "<br><br>Shift complete! You earned $50.";
+
+    document.getElementById("resultText").innerHTML =
+    message + "<br><br>Shift complete! You earned $50.";
+
 
 
     document.getElementById("shiftEvent").style.display = "none";
 
+
+
+    setTimeout(function(){
+
+
+        shiftScreen.style.display = "none";
+
+
+        payScreen.style.display = "block";
+
+
+        document.getElementById("payJob").innerHTML =
+        playerJob;
+
+
+    }, 2000);
+
+
 }
+
+
+
+
+
+// PAYDAY CONTINUE BUTTON
+
+
+document.getElementById("continuePayButton").onclick = function(){
+
+
+    alert(
+    "Great job " + playerName + "! You have completed your first week of work."
+    );
+
+
+};
