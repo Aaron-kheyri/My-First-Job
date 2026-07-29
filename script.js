@@ -5,6 +5,7 @@ const characterScreen = document.getElementById("characterScreen");
 const tfnScreen = document.getElementById("tfnScreen");
 const jobScreen = document.getElementById("jobScreen");
 const shiftScreen = document.getElementById("shiftScreen");
+const payScreen = document.getElementById("payScreen");
 
 
 let playerName = "";
@@ -17,10 +18,9 @@ let energy = 100;
 
 
 
-
 // START GAME
 
-startButton.onclick = function() {
+startButton.onclick = function(){
 
     homeScreen.style.display = "none";
     characterScreen.style.display = "block";
@@ -31,15 +31,15 @@ startButton.onclick = function() {
 
 
 
-// CREATE CHARACTER
+// ENTER NAME
 
-document.getElementById("continueButton").onclick = function() {
+document.getElementById("continueButton").onclick = function(){
 
 
     playerName = document.getElementById("playerName").value;
 
 
-    if (playerName === "") {
+    if(playerName === ""){
 
         alert("Please enter your name!");
 
@@ -49,12 +49,12 @@ document.getElementById("continueButton").onclick = function() {
 
 
     characterScreen.style.display = "none";
-
     tfnScreen.style.display = "block";
 
 
     document.getElementById("tfnStory").innerHTML =
     "You finished your interview and got offered your first job!";
+
 
 };
 
@@ -64,13 +64,15 @@ document.getElementById("continueButton").onclick = function() {
 
 
 
-// TFN CORRECT ANSWER
+// TFN QUESTION
 
-document.getElementById("tfnCorrect").onclick = function() {
+
+document.getElementById("tfnCorrect").onclick = function(){
 
 
     document.getElementById("tfnResult").innerHTML =
-    "Correct! A TFN is used to identify you for tax purposes. Your employer uses it to help manage your tax and report your income correctly.";
+    "Correct! A TFN identifies you for tax purposes. Your employer uses it to help manage your tax and report your income correctly.";
+
 
 
     setTimeout(function(){
@@ -85,7 +87,7 @@ document.getElementById("tfnCorrect").onclick = function() {
         "Welcome " + playerName + "! Choose your first job.";
 
 
-    }, 3000);
+    },3000);
 
 
 };
@@ -93,15 +95,11 @@ document.getElementById("tfnCorrect").onclick = function() {
 
 
 
-
-
-// TFN WRONG ANSWER 1
-
-document.getElementById("tfnWrong1").onclick = function() {
+document.getElementById("tfnWrong1").onclick = function(){
 
 
     document.getElementById("tfnResult").innerHTML =
-    "Not quite. Your TFN does not give your employer access to your bank account. A TFN helps manage your tax responsibilities when you earn money.";
+    "Not quite. Your TFN does not give your employer access to your bank account. It is used for tax purposes when you earn money.";
 
 };
 
@@ -109,15 +107,11 @@ document.getElementById("tfnWrong1").onclick = function() {
 
 
 
-
-
-// TFN WRONG ANSWER 2
-
-document.getElementById("tfnWrong2").onclick = function() {
+document.getElementById("tfnWrong2").onclick = function(){
 
 
     document.getElementById("tfnResult").innerHTML =
-    "Not quite. Your TFN does not decide your wage. Your pay depends on your job and workplace agreement. Your TFN is used for tax purposes.";
+    "Not quite. Your TFN does not decide your wage. Your job and workplace agreement determine your pay.";
 
 };
 
@@ -130,13 +124,14 @@ document.getElementById("tfnWrong2").onclick = function() {
 
 // JOB SELECTION
 
+
 const jobButtons = document.querySelectorAll(".jobButton");
 
 
 
 jobButtons[0].onclick = function(){
 
-    chooseJob("🍔 Fast Food Worker", 25);
+    chooseJob("🍔 Fast Food Worker",25);
 
 };
 
@@ -144,7 +139,7 @@ jobButtons[0].onclick = function(){
 
 jobButtons[1].onclick = function(){
 
-    chooseJob("🛒 Retail Assistant", 27);
+    chooseJob("🛒 Retail Assistant",27);
 
 };
 
@@ -152,7 +147,7 @@ jobButtons[1].onclick = function(){
 
 jobButtons[2].onclick = function(){
 
-    chooseJob("☕ Café Worker", 26);
+    chooseJob("☕ Café Worker",26);
 
 };
 
@@ -161,8 +156,7 @@ jobButtons[2].onclick = function(){
 
 
 
-
-function chooseJob(job, pay) {
+function chooseJob(job,pay){
 
 
     playerJob = job;
@@ -188,7 +182,9 @@ function chooseJob(job, pay) {
 
 
 
+
 // START SHIFT
+
 
 document.getElementById("startShiftButton").onclick = function(){
 
@@ -201,8 +197,6 @@ document.getElementById("startShiftButton").onclick = function(){
 
     document.getElementById("eventText").innerHTML =
     "Your manager asks you to help a customer who needs assistance.";
-
-
 
 
 
@@ -226,19 +220,16 @@ document.getElementById("startShiftButton").onclick = function(){
 
 
 
-
 // SHIFT CHOICES
 
 
 document.getElementById("choice1").onclick = function(){
 
-
-    completeTask(
+    completeShift(
         10,
         95,
         "Great work! The customer appreciated your help."
     );
-
 
 };
 
@@ -247,13 +238,11 @@ document.getElementById("choice1").onclick = function(){
 
 document.getElementById("choice2").onclick = function(){
 
-
-    completeTask(
+    completeShift(
         5,
         90,
-        "Good choice! Asking questions shows responsibility."
+        "Good choice! Asking for help shows responsibility."
     );
-
 
 };
 
@@ -262,13 +251,11 @@ document.getElementById("choice2").onclick = function(){
 
 document.getElementById("choice3").onclick = function(){
 
-
-    completeTask(
+    completeShift(
         0,
         85,
         "Your manager noticed you could have helped more."
     );
-
 
 };
 
@@ -279,14 +266,14 @@ document.getElementById("choice3").onclick = function(){
 
 
 
-function completeTask(xp, newEnergy, message){
+function completeShift(xp,newEnergy,message){
 
 
     experience += xp;
 
     energy = newEnergy;
 
-    money += 50;
+    money += 250;
 
 
 
@@ -299,7 +286,67 @@ function completeTask(xp, newEnergy, message){
 
 
     document.getElementById("resultText").innerHTML =
-    message + "<br><br>Shift complete! You earned $50.";
+    message + "<br><br>Your first pay has arrived!";
+
+
+    setTimeout(function(){
+
+
+        shiftScreen.style.display = "none";
+
+        payScreen.style.display = "block";
+
+
+        document.getElementById("payJob").innerHTML =
+        playerJob;
+
+
+    },3000);
 
 
 }
+
+
+
+
+
+
+
+
+
+// SUPER QUESTION
+
+
+document.getElementById("superCorrect").onclick = function(){
+
+
+    document.getElementById("superResult").innerHTML =
+    "Correct! Superannuation is money your employer contributes into your super fund to help save for your future.";
+
+
+};
+
+
+
+
+
+document.getElementById("superWrong1").onclick = function(){
+
+
+    document.getElementById("superResult").innerHTML =
+    "Not quite. Super is not extra spending money. It is saved for your future.";
+
+};
+
+
+
+
+
+
+document.getElementById("superWrong2").onclick = function(){
+
+
+    document.getElementById("superResult").innerHTML =
+    "Not quite. Super is not a workplace fee. It is a contribution made by your employer into your super fund.";
+
+};
