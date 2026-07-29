@@ -1113,3 +1113,10 @@ nextScreen("homeScreen");
 
 
 }
+function startGame(){
+
+updateProgress(5,"Creating Employee Profile");
+
+nextScreen("profileScreen");
+
+}
