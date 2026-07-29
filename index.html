@@ -7,14 +7,34 @@
 
 <body>
 
-    <div class="app">
-        <h1>My First Job</h1>
-        <p>Learn what you need to know before getting your first job.</p>
+<div class="app" id="homeScreen">
 
-        <button id="startButton">Start Game</button>
-    </div>
+    <h1>My First Job</h1>
+    <p>Learn what you need to know before getting your first job.</p>
+
+    <button id="startButton">Start Game</button>
+
+</div>
+
+<div class="app" id="characterScreen" style="display:none;">
+
+    <h1>Create Your Character</h1>
+
+    <p>What is your name?</p>
+
+    <input
+        type="text"
+        id="playerName"
+        placeholder="Enter your name">
+
+    <br><br>
+
+    <button id="continueButton">Continue</button>
+
+</div>
 
 <script src="script.js"></script>
 
 </body>
 </html>
+
