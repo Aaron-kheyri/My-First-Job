@@ -7,15 +7,54 @@
 
 <body>
 
-<div class="app" id="homeScreen">
+<div class="app" id="characterScreen" style="display:none;">
 
-    <h1>My First Job</h1>
-    <p>Learn what you need to know before getting your first job.</p>
+    <h1>Create Your Character</h1>
 
-    <button id="startButton">Start Game</button>
+    <p>What is your name?</p>
+
+    <input
+        type="text"
+        id="playerName"
+        placeholder="Enter your name">
+
+    <br><br>
+
+    <button id="continueButton">Continue</button>
 
 </div>
 
+
+<div class="app" id="jobScreen" style="display:none;">
+
+    <h1>Choose Your First Job</h1>
+
+    <p id="welcomeText"></p>
+
+    <div class="jobCard">
+        <h2>🍔 Fast Food Worker</h2>
+        <p>Easy to get started</p>
+        <p>Pay: $25/hour</p>
+        <button class="jobButton">Choose</button>
+    </div>
+
+
+    <div class="jobCard">
+        <h2>🛒 Retail Assistant</h2>
+        <p>Learn customer service skills</p>
+        <p>Pay: $27/hour</p>
+        <button class="jobButton">Choose</button>
+    </div>
+
+
+    <div class="jobCard">
+        <h2>☕ Café Worker</h2>
+        <p>Develop communication skills</p>
+        <p>Pay: $26/hour</p>
+        <button class="jobButton">Choose</button>
+    </div>
+
+</div>
 <div class="app" id="characterScreen" style="display:none;">
 
     <h1>Create Your Character</h1>
