@@ -1,14 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My First Job</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+<div class="app" id="homeScreen">
+
+    <h1>My First Job</h1>
+
+    <p>Learn what you need to know before getting your first job.</p>
+
+    <button id="startButton">Start Game</button>
+
+</div>
+
+
+
+<div class="app" id="characterScreen" style="display:none;">
+
+    <h1>Create Your Character</h1>
+
+    <p>What is your name?</p>
+
+    <input 
+        type="text" 
+        id="playerName" 
+        placeholder="Enter your name">
+
+    <br><br>
+
+    <button id="continueButton">Continue</button>
+
+</div>
+
+
+
+<div class="app" id="jobScreen" style="display:none;">
+
+    <h1>Choose Your First Job</h1>
+
+    <p id="welcomeText"></p>
+
+
+    <div class="jobCard">
+
+        <h2>🍔 Fast Food Worker</h2>
+
+        <p>Easy to get started</p>
+
+        <p>Pay: $25/hour</p>
+
+        <button class="jobButton">Choose</button>
+
+    </div>
+
+
+
+    <div class="jobCard">
+
+        <h2>🛒 Retail Assistant</h2>
+
+        <p>Learn customer service skills</p>
+
+        <p>Pay: $27/hour</p>
+
+        <button class="jobButton">Choose</button>
+
+    </div>
+
+
+
+    <div class="jobCard">
+
+        <h2>☕ Café Worker</h2>
+
+        <p>Develop communication skills</p>
+
+        <p>Pay: $26/hour</p>
+
+        <button class="jobButton">Choose</button>
+
+    </div>
+
+
+</div>
+
+
+
+
 <div class="app" id="shiftScreen" style="display:none;">
 
-    <h1>First Shift</h1>
+    <h1>🛠️ First Shift</h1>
 
     <p id="jobWelcome"></p>
+
 
     <h2>Your Stats</h2>
 
     <p>💰 Money: $<span id="money">0</span></p>
+
     <p>⭐ Experience: <span id="experience">0</span> XP</p>
+
     <p>⚡ Energy: <span id="energy">100</span>%</p>
+
 
 
     <div id="shiftEvent" style="display:none;">
@@ -17,11 +116,13 @@
 
         <p id="eventText"></p>
 
+
         <button class="choiceButton" id="choice1"></button>
 
         <button class="choiceButton" id="choice2"></button>
 
         <button class="choiceButton" id="choice3"></button>
+
 
     </div>
 
@@ -30,4 +131,60 @@
 
     <p id="resultText"></p>
 
+
 </div>
+
+
+
+
+
+<div class="app" id="payScreen" style="display:none;">
+
+    <h1>💰 Pay Day!</h1>
+
+
+    <h2>Your Payslip</h2>
+
+
+    <p>Job: <span id="payJob"></span></p>
+
+    <p>Hours Worked: 10</p>
+
+    <p>Hourly Rate: $25</p>
+
+    <p>Gross Pay: $250</p>
+
+    <p>Tax Withheld: $0</p>
+
+    <p>Super Contribution: $27.50</p>
+
+
+
+    <h2>📚 Learning Moment</h2>
+
+
+    <p>
+    📄 Your TFN helps your employer and the ATO manage your tax correctly.
+    </p>
+
+
+    <p>
+    🏦 Superannuation is money your employer contributes into your super fund for your future.
+    </p>
+
+
+
+    <button id="continuePayButton">Continue</button>
+
+
+</div>
+
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
