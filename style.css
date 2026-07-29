@@ -52,3 +52,25 @@ input{
     font-size:18px;
     text-align:center;
 }
+.jobCard {
+    background: #f4f4f4;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+
+.jobCard h2 {
+    margin-bottom: 10px;
+}
+
+
+.jobButton {
+    background: #16a34a;
+}
+
+
+.jobButton:hover {
+    background: #15803d;
+}
