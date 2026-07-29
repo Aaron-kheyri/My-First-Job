@@ -2,15 +2,14 @@ const startButton = document.getElementById("startButton");
 
 const homeScreen = document.getElementById("homeScreen");
 const characterScreen = document.getElementById("characterScreen");
+const tfnScreen = document.getElementById("tfnScreen");
 const jobScreen = document.getElementById("jobScreen");
 const shiftScreen = document.getElementById("shiftScreen");
-const payScreen = document.getElementById("payScreen");
 
 
 let playerName = "";
 let playerJob = "";
 let playerPay = 0;
-
 
 let money = 0;
 let experience = 0;
@@ -26,6 +25,8 @@ startButton.onclick = function() {
     characterScreen.style.display = "block";
 
 };
+
+
 
 
 
@@ -48,37 +49,101 @@ document.getElementById("continueButton").onclick = function() {
 
     characterScreen.style.display = "none";
 
-    jobScreen.style.display = "block";
+    tfnScreen.style.display = "block";
 
 
-    document.getElementById("welcomeText").innerHTML =
-    "Welcome " + playerName + "! Choose your first job.";
+    document.getElementById("tfnStory").innerHTML =
+    "Congratulations " + playerName + "! You have been offered your first job.";
 
 };
 
 
 
 
-// JOB BUTTONS
+
+
+// TFN CORRECT ANSWER
+
+document.getElementById("tfnCorrect").onclick = function() {
+
+
+    document.getElementById("tfnResult").innerHTML =
+    "✅ Correct! Your TFN helps your employer and the ATO manage your tax correctly. Now you can continue setting up your first job.";
+
+
+    setTimeout(function(){
+
+
+        tfnScreen.style.display = "none";
+
+        jobScreen.style.display = "block";
+
+
+        document.getElementById("welcomeText").innerHTML =
+        "Welcome " + playerName + "! Choose your first job.";
+
+
+    }, 2500);
+
+
+};
+
+
+
+
+
+
+// TFN WRONG ANSWERS
+
+
+document.getElementById("tfnWrong1").onclick = function() {
+
+
+    document.getElementById("tfnResult").innerHTML =
+    "Not quite. Your TFN is not used to access your bank account. It is used for tax purposes.";
+
+};
+
+
+
+document.getElementById("tfnWrong2").onclick = function() {
+
+
+    document.getElementById("tfnResult").innerHTML =
+    "Not quite. Your TFN does not decide your wage. It helps manage your tax responsibilities.";
+
+};
+
+
+
+
+
+
+
+// JOB SELECTION
+
 
 const jobButtons = document.querySelectorAll(".jobButton");
 
 
-jobButtons[0].onclick = function() {
+
+jobButtons[0].onclick = function(){
 
     chooseJob("🍔 Fast Food Worker", 25);
 
 };
 
 
-jobButtons[1].onclick = function() {
+
+jobButtons[1].onclick = function(){
 
     chooseJob("🛒 Retail Assistant", 27);
 
 };
 
 
-jobButtons[2].onclick = function() {
+
+jobButtons[2].onclick = function(){
 
     chooseJob("☕ Café Worker", 26);
 
@@ -110,9 +175,12 @@ function chooseJob(job, pay) {
 
 
 
+
+
 // START SHIFT
 
-document.getElementById("startShiftButton").onclick = function() {
+
+document.getElementById("startShiftButton").onclick = function(){
 
 
     document.getElementById("startShiftButton").style.display = "none";
@@ -144,43 +212,30 @@ document.getElementById("startShiftButton").onclick = function() {
 
 
 
-// CHOICES
 
 
-document.getElementById("choice1").onclick = function() {
+// SHIFT CHOICES
 
 
-    completeTask(
-        10,
-        95,
-        "Great work! The customer appreciated your help."
-    );
+document.getElementById("choice1").onclick = function(){
+
+    completeTask(10, 95, "Great work! The customer appreciated your help.");
 
 };
 
 
 
-document.getElementById("choice2").onclick = function() {
+document.getElementById("choice2").onclick = function(){
 
-
-    completeTask(
-        5,
-        90,
-        "Good decision! Asking questions shows responsibility."
-    );
+    completeTask(5, 90, "Good decision! Asking for help shows responsibility.");
 
 };
 
 
 
-document.getElementById("choice3").onclick = function() {
+document.getElementById("choice3").onclick = function(){
 
-
-    completeTask(
-        0,
-        85,
-        "Your manager noticed you could have helped more."
-    );
+    completeTask(0, 85, "Your manager noticed you could have helped more.");
 
 };
 
@@ -189,7 +244,8 @@ document.getElementById("choice3").onclick = function() {
 
 
 
-function completeTask(xp, newEnergy, message) {
+
+function completeTask(xp, newEnergy, message){
 
 
     experience += xp;
@@ -211,43 +267,4 @@ function completeTask(xp, newEnergy, message) {
     document.getElementById("resultText").innerHTML =
     message + "<br><br>Shift complete! You earned $50.";
 
-
-
-    document.getElementById("shiftEvent").style.display = "none";
-
-
-
-    setTimeout(function(){
-
-
-        shiftScreen.style.display = "none";
-
-
-        payScreen.style.display = "block";
-
-
-        document.getElementById("payJob").innerHTML =
-        playerJob;
-
-
-    }, 2000);
-
-
 }
-
-
-
-
-
-// PAYDAY CONTINUE BUTTON
-
-
-document.getElementById("continuePayButton").onclick = function(){
-
-
-    alert(
-    "Great job " + playerName + "! You have completed your first week of work."
-    );
-
-
-};
