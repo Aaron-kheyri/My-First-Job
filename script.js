@@ -17,6 +17,7 @@ let energy = 100;
 
 
 
+
 // START GAME
 
 startButton.onclick = function() {
@@ -30,7 +31,7 @@ startButton.onclick = function() {
 
 
 
-// ENTER NAME
+// CREATE CHARACTER
 
 document.getElementById("continueButton").onclick = function() {
 
@@ -53,9 +54,10 @@ document.getElementById("continueButton").onclick = function() {
 
 
     document.getElementById("tfnStory").innerHTML =
-    "Congratulations " + playerName + "! You have been offered your first job.";
+    "You finished your interview and got offered your first job!";
 
 };
+
 
 
 
@@ -68,7 +70,7 @@ document.getElementById("tfnCorrect").onclick = function() {
 
 
     document.getElementById("tfnResult").innerHTML =
-    "✅ Correct! Your TFN helps your employer and the ATO manage your tax correctly. Now you can continue setting up your first job.";
+    "Correct! A TFN is used to identify you for tax purposes. Your employer uses it to help manage your tax and report your income correctly.";
 
 
     setTimeout(function(){
@@ -83,7 +85,7 @@ document.getElementById("tfnCorrect").onclick = function() {
         "Welcome " + playerName + "! Choose your first job.";
 
 
-    }, 2500);
+    }, 3000);
 
 
 };
@@ -93,26 +95,32 @@ document.getElementById("tfnCorrect").onclick = function() {
 
 
 
-// TFN WRONG ANSWERS
-
+// TFN WRONG ANSWER 1
 
 document.getElementById("tfnWrong1").onclick = function() {
 
 
     document.getElementById("tfnResult").innerHTML =
-    "Not quite. Your TFN is not used to access your bank account. It is used for tax purposes.";
+    "Not quite. Your TFN does not give your employer access to your bank account. A TFN helps manage your tax responsibilities when you earn money.";
 
 };
 
 
+
+
+
+
+
+// TFN WRONG ANSWER 2
 
 document.getElementById("tfnWrong2").onclick = function() {
 
 
     document.getElementById("tfnResult").innerHTML =
-    "Not quite. Your TFN does not decide your wage. It helps manage your tax responsibilities.";
+    "Not quite. Your TFN does not decide your wage. Your pay depends on your job and workplace agreement. Your TFN is used for tax purposes.";
 
 };
+
 
 
 
@@ -121,7 +129,6 @@ document.getElementById("tfnWrong2").onclick = function() {
 
 
 // JOB SELECTION
-
 
 const jobButtons = document.querySelectorAll(".jobButton");
 
@@ -153,6 +160,8 @@ jobButtons[2].onclick = function(){
 
 
 
+
+
 function chooseJob(job, pay) {
 
 
@@ -177,8 +186,9 @@ function chooseJob(job, pay) {
 
 
 
-// START SHIFT
 
+
+// START SHIFT
 
 document.getElementById("startShiftButton").onclick = function(){
 
@@ -191,6 +201,8 @@ document.getElementById("startShiftButton").onclick = function(){
 
     document.getElementById("eventText").innerHTML =
     "Your manager asks you to help a customer who needs assistance.";
+
+
 
 
 
@@ -214,30 +226,52 @@ document.getElementById("startShiftButton").onclick = function(){
 
 
 
+
 // SHIFT CHOICES
 
 
 document.getElementById("choice1").onclick = function(){
 
-    completeTask(10, 95, "Great work! The customer appreciated your help.");
+
+    completeTask(
+        10,
+        95,
+        "Great work! The customer appreciated your help."
+    );
+
 
 };
+
 
 
 
 document.getElementById("choice2").onclick = function(){
 
-    completeTask(5, 90, "Good decision! Asking for help shows responsibility.");
+
+    completeTask(
+        5,
+        90,
+        "Good choice! Asking questions shows responsibility."
+    );
+
 
 };
+
 
 
 
 document.getElementById("choice3").onclick = function(){
 
-    completeTask(0, 85, "Your manager noticed you could have helped more.");
+
+    completeTask(
+        0,
+        85,
+        "Your manager noticed you could have helped more."
+    );
+
 
 };
+
 
 
 
@@ -266,5 +300,6 @@ function completeTask(xp, newEnergy, message){
 
     document.getElementById("resultText").innerHTML =
     message + "<br><br>Shift complete! You earned $50.";
+
 
 }
