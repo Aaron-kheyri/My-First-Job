@@ -11,13 +11,17 @@
 
 <div class="app" id="homeScreen">
 
-    <h1>My First Job</h1>
+    <h1>🎮 My First Job</h1>
 
-    <p>Learn what you need to know before getting your first job.</p>
+    <p>
+    Your journey into the workforce begins.
+    Learn how to manage your first job, tax and super.
+    </p>
 
     <button id="startButton">Start Game</button>
 
 </div>
+
 
 
 
@@ -28,9 +32,9 @@
     <p>What is your name?</p>
 
     <input 
-        type="text" 
-        id="playerName" 
-        placeholder="Enter your name">
+    type="text" 
+    id="playerName"
+    placeholder="Enter your name">
 
     <br><br>
 
@@ -40,18 +44,62 @@
 
 
 
+
+
+<div class="app" id="tfnScreen" style="display:none;">
+
+    <h1>📄 Getting Hired</h1>
+
+    <p id="tfnStory"></p>
+
+
+    <h2>Manager:</h2>
+
+    <p>
+    "Before you start working, we need your Tax File Number."
+    </p>
+
+
+    <h3>Why does your employer need your TFN?</h3>
+
+
+    <button class="tfnChoice" id="tfnCorrect">
+    ✅ To help manage your tax correctly
+    </button>
+
+
+    <button class="tfnChoice" id="tfnWrong1">
+    ❌ To access your bank account
+    </button>
+
+
+    <button class="tfnChoice" id="tfnWrong2">
+    ❌ To decide your hourly wage
+    </button>
+
+
+    <p id="tfnResult"></p>
+
+
+</div>
+
+
+
+
+
 <div class="app" id="jobScreen" style="display:none;">
 
-    <h1>Choose Your First Job</h1>
+    <h1>💼 Choose Your First Job</h1>
 
     <p id="welcomeText"></p>
+
 
 
     <div class="jobCard">
 
         <h2>🍔 Fast Food Worker</h2>
 
-        <p>Easy to get started</p>
+        <p>Learn teamwork and customer service</p>
 
         <p>Pay: $25/hour</p>
 
@@ -65,7 +113,7 @@
 
         <h2>🛒 Retail Assistant</h2>
 
-        <p>Learn customer service skills</p>
+        <p>Learn communication skills</p>
 
         <p>Pay: $27/hour</p>
 
@@ -75,11 +123,12 @@
 
 
 
+
     <div class="jobCard">
 
         <h2>☕ Café Worker</h2>
 
-        <p>Develop communication skills</p>
+        <p>Develop workplace skills</p>
 
         <p>Pay: $26/hour</p>
 
@@ -93,14 +142,17 @@
 
 
 
+
 <div class="app" id="shiftScreen" style="display:none;">
 
     <h1>🛠️ First Shift</h1>
+
 
     <p id="jobWelcome"></p>
 
 
     <h2>Your Stats</h2>
+
 
     <p>💰 Money: $<span id="money">0</span></p>
 
@@ -108,6 +160,11 @@
 
     <p>⚡ Energy: <span id="energy">100</span>%</p>
 
+
+
+    <button id="startShiftButton">
+    Start Shift
+    </button>
 
 
     <div id="shiftEvent" style="display:none;">
@@ -123,61 +180,15 @@
 
         <button class="choiceButton" id="choice3"></button>
 
-
     </div>
 
 
-    <button id="startShiftButton">Start Shift</button>
 
     <p id="resultText"></p>
 
 
 </div>
 
-
-
-
-
-<div class="app" id="payScreen" style="display:none;">
-
-    <h1>💰 Pay Day!</h1>
-
-
-    <h2>Your Payslip</h2>
-
-
-    <p>Job: <span id="payJob"></span></p>
-
-    <p>Hours Worked: 10</p>
-
-    <p>Hourly Rate: $25</p>
-
-    <p>Gross Pay: $250</p>
-
-    <p>Tax Withheld: $0</p>
-
-    <p>Super Contribution: $27.50</p>
-
-
-
-    <h2>📚 Learning Moment</h2>
-
-
-    <p>
-    📄 Your TFN helps your employer and the ATO manage your tax correctly.
-    </p>
-
-
-    <p>
-    🏦 Superannuation is money your employer contributes into your super fund for your future.
-    </p>
-
-
-
-    <button id="continuePayButton">Continue</button>
-
-
-</div>
 
 
 
