@@ -350,3 +350,652 @@ To access your bank account
 
 
 </section>
+<!-- JOB SCREEN -->
+
+<section class="screen" id="jobScreen">
+
+
+<h1>
+💼 Choose Your First Job
+</h1>
+
+
+<p>
+Pick a job and begin your workplace journey.
+</p>
+
+
+
+<div class="job-card">
+
+
+<h2>
+🍔 Fast Food Worker
+</h2>
+
+
+<p>
+Learn teamwork and customer service.
+</p>
+
+
+<p>
+Pay: $25/hour
+</p>
+
+
+<button onclick="chooseJob('Fast Food Worker',25)">
+
+Apply
+
+</button>
+
+
+</div>
+
+
+
+
+
+<div class="job-card">
+
+
+<h2>
+🛒 Retail Assistant
+</h2>
+
+
+<p>
+Develop communication skills.
+</p>
+
+
+<p>
+Pay: $27/hour
+</p>
+
+
+<button onclick="chooseJob('Retail Assistant',27)">
+
+Apply
+
+</button>
+
+
+</div>
+
+
+
+
+
+<div class="job-card">
+
+
+<h2>
+☕ Café Worker
+</h2>
+
+
+<p>
+Improve organisation skills.
+</p>
+
+
+<p>
+Pay: $26/hour
+</p>
+
+
+<button onclick="chooseJob('Café Worker',26)">
+
+Apply
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ACCEPTED -->
+
+<section class="screen" id="acceptedScreen">
+
+
+<h1>
+✅ Job Accepted
+</h1>
+
+
+<div class="story-card">
+
+
+<p id="jobMessage"></p>
+
+
+<p>
+Your first shift starts now.
+</p>
+
+
+</div>
+
+
+
+<button onclick="nextScreen('shiftScreen')">
+
+Start Shift
+
+</button>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- SHIFT -->
+
+<section class="screen" id="shiftScreen">
+
+
+<h1>
+🛠️ First Shift
+</h1>
+
+
+
+<div class="stats-card">
+
+
+<p>
+💰 Money: $<span id="money">0</span>
+</p>
+
+
+<p>
+⭐ Workplace XP:
+<span id="workXP">0</span>
+</p>
+
+
+<p>
+⚡ Energy:
+<span id="energy">100</span>%
+</p>
+
+
+</div>
+
+
+
+<div class="story-card">
+
+
+<p>
+A customer needs help at work.
+</p>
+
+
+<p>
+What should you do?
+</p>
+
+
+</div>
+
+
+
+<button onclick="shiftChoice(1)">
+
+Help the customer politely
+
+</button>
+
+
+<button onclick="shiftChoice(2)">
+
+Ask your manager for help
+
+</button>
+
+
+<button onclick="shiftChoice(3)">
+
+Ignore the customer
+
+</button>
+
+
+
+<p id="shiftFeedback"></p>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- PHONE -->
+
+<section class="screen" id="phoneScreen">
+
+
+<h1>
+📱 Phone
+</h1>
+
+
+
+<div class="notification">
+
+
+<h2>
+🔔 New Notification
+</h2>
+
+
+<p>
+Your first payslip is available.
+</p>
+
+
+
+<button onclick="nextScreen('payslipScreen')">
+
+Open Payslip
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- PAYSLIP -->
+
+<section class="screen" id="payslipScreen">
+
+
+<h1>
+🧾 Payslip
+</h1>
+
+
+
+<div class="payslip">
+
+
+<h2>
+My First Job
+</h2>
+
+
+<p>
+Employee:
+<span id="payName"></span>
+</p>
+
+
+<p>
+Job:
+<span id="payJob"></span>
+</p>
+
+
+<hr>
+
+
+<p>
+Hours Worked: 10
+</p>
+
+
+<p>
+Gross Pay: $250
+</p>
+
+
+<p>
+Tax Withheld: $0
+</p>
+
+
+<p>
+Super Contribution: $27.50
+</p>
+
+
+<p>
+Take Home Pay: $250
+</p>
+
+
+
+</div>
+
+
+
+<button onclick="nextScreen('taxScreen')">
+
+Learn About Tax
+
+</button>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- TAX -->
+
+<section class="screen" id="taxScreen">
+
+
+<h1>
+💰 Understanding Tax
+</h1>
+
+
+
+<div class="story-card">
+
+
+<p>
+Your manager explains:
+</p>
+
+
+<p>
+"Tax is money collected by the government from people who earn income."
+</p>
+
+
+<p>
+"It helps pay for services like hospitals, schools, roads and emergency services."
+</p>
+
+
+</div>
+
+
+
+<button onclick="nextScreen('taxQuizScreen')">
+
+Next
+
+</button>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- TAX QUIZ -->
+
+<section class="screen" id="taxQuizScreen">
+
+
+<h1>
+🧠 Tax Challenge
+</h1>
+
+
+
+<h2>
+Why do workers pay tax?
+</h2>
+
+
+
+<button onclick="answerTax(false)">
+
+Because workplaces charge a fee
+
+</button>
+
+
+
+<button onclick="answerTax(true)">
+
+To help fund community services
+
+</button>
+
+
+
+<button onclick="answerTax(false)">
+
+Because everyone pays the same amount
+
+</button>
+
+
+
+<p id="taxFeedback"></p>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- SUPER -->
+
+<section class="screen" id="superScreen">
+
+
+<h1>
+🏦 Superannuation
+</h1>
+
+
+
+<div class="story-card">
+
+
+<p>
+You notice money has gone into super.
+</p>
+
+
+<p>
+Your manager explains:
+</p>
+
+
+<p>
+"Superannuation is money your employer contributes into a super fund to help save for your future."
+</p>
+
+
+</div>
+
+
+
+<button onclick="nextScreen('superQuizScreen')">
+
+Next
+
+</button>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- SUPER QUIZ -->
+
+<section class="screen" id="superQuizScreen">
+
+
+<h1>
+🧠 Super Challenge
+</h1>
+
+
+
+<h2>
+What is superannuation?
+</h2>
+
+
+
+<button onclick="answerSuper(false)">
+
+Money you spend immediately
+
+</button>
+
+
+
+<button onclick="answerSuper(false)">
+
+A workplace fee
+
+</button>
+
+
+
+<button onclick="answerSuper(true)">
+
+Money saved for your future
+
+</button>
+
+
+
+<p id="superFeedback"></p>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- FINAL -->
+
+<section class="screen" id="finalScreen">
+
+
+<h1>
+🎓 Employee Report
+</h1>
+
+
+
+<div class="stats-card">
+
+
+<h2>
+Congratulations!
+</h2>
+
+
+<p id="finalMessage"></p>
+
+
+
+<h2>
+🏅 Badges
+</h2>
+
+
+<div id="badgeList">
+
+</div>
+
+
+
+</div>
+
+
+
+<button onclick="restartGame()">
+
+🔄 Play Again
+
+</button>
+
+
+
+<button onclick="returnHome()">
+
+📱 Return Home
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+
+</div>
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
