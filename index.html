@@ -15,12 +15,13 @@
 
     <p>
     Your journey into the workforce begins.
-    Learn how to manage your first job, tax and super.
+    Learn about jobs, tax and super.
     </p>
 
     <button id="startButton">Start Game</button>
 
 </div>
+
 
 
 
@@ -46,36 +47,62 @@
 
 
 
+
 <div class="app" id="tfnScreen" style="display:none;">
 
     <h1>📄 Getting Hired</h1>
+
 
     <p id="tfnStory"></p>
 
 
     <h2>Manager:</h2>
 
+
     <p>
-    "Before you start working, we need your Tax File Number."
+    "Congratulations! We would like to offer you your first job."
     </p>
 
 
-    <h3>Why does your employer need your TFN?</h3>
+    <p>
+    "Before you start, we need some personal details from you."
+    </p>
+
+
+    <p>
+    "One important thing we need is your Tax File Number (TFN)."
+    </p>
+
+
+    <h3>
+    What is a TFN used for?
+    </h3>
+
 
 
     <button class="tfnChoice" id="tfnCorrect">
-    ✅ To help manage your tax correctly
+
+    A number used to identify you for tax purposes
+
     </button>
+
 
 
     <button class="tfnChoice" id="tfnWrong1">
-    ❌ To access your bank account
+
+    A number that lets your employer access your bank account
+
     </button>
+
+
 
 
     <button class="tfnChoice" id="tfnWrong2">
-    ❌ To decide your hourly wage
+
+    A number that decides how much money you earn
+
     </button>
+
 
 
     <p id="tfnResult"></p>
@@ -87,9 +114,12 @@
 
 
 
+
+
 <div class="app" id="jobScreen" style="display:none;">
 
     <h1>💼 Choose Your First Job</h1>
+
 
     <p id="welcomeText"></p>
 
@@ -109,6 +139,7 @@
 
 
 
+
     <div class="jobCard">
 
         <h2>🛒 Retail Assistant</h2>
@@ -120,6 +151,7 @@
         <button class="jobButton">Choose</button>
 
     </div>
+
 
 
 
@@ -143,12 +175,16 @@
 
 
 
+
+
 <div class="app" id="shiftScreen" style="display:none;">
+
 
     <h1>🛠️ First Shift</h1>
 
 
     <p id="jobWelcome"></p>
+
 
 
     <h2>Your Stats</h2>
@@ -162,16 +198,24 @@
 
 
 
+
     <button id="startShiftButton">
+
     Start Shift
+
     </button>
+
+
 
 
     <div id="shiftEvent" style="display:none;">
 
+
         <h2>Your Task</h2>
 
+
         <p id="eventText"></p>
+
 
 
         <button class="choiceButton" id="choice1"></button>
@@ -180,11 +224,15 @@
 
         <button class="choiceButton" id="choice3"></button>
 
+
+
     </div>
 
 
 
+
     <p id="resultText"></p>
+
 
 
 </div>
