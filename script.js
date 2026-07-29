@@ -686,9 +686,9 @@ updateProgress(100,"Final Employee Challenge");
 
 setTimeout(()=>{
 
+document.getElementById("challengeName").innerHTML = playerName;
 
-startFinalTest();
-
+nextScreen("challengeIntroScreen");
 
 },2500);
 
