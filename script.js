@@ -30,7 +30,6 @@ startButton.onclick = function(){
 
 
 
-
 // ENTER NAME
 
 document.getElementById("continueButton").onclick = function(){
@@ -53,8 +52,7 @@ document.getElementById("continueButton").onclick = function(){
 
 
     document.getElementById("tfnStory").innerHTML =
-    "You finished your interview and got offered your first job!";
-
+    "You finished your interview and have been offered your first job!";
 
 };
 
@@ -71,7 +69,8 @@ document.getElementById("tfnCorrect").onclick = function(){
 
 
     document.getElementById("tfnResult").innerHTML =
-    "Correct! A TFN identifies you for tax purposes. Your employer uses it to help manage your tax and report your income correctly.";
+
+    "Correct! A Tax File Number (TFN) is a unique number used to identify you for tax purposes. When you earn money, your employer uses your TFN to help report your income and manage your tax responsibilities correctly.";
 
 
 
@@ -84,13 +83,16 @@ document.getElementById("tfnCorrect").onclick = function(){
 
 
         document.getElementById("welcomeText").innerHTML =
+
         "Welcome " + playerName + "! Choose your first job.";
 
 
-    },3000);
+    },4000);
 
 
 };
+
+
 
 
 
@@ -99,9 +101,12 @@ document.getElementById("tfnWrong1").onclick = function(){
 
 
     document.getElementById("tfnResult").innerHTML =
-    "Not quite. Your TFN does not give your employer access to your bank account. It is used for tax purposes when you earn money.";
+
+    "Not quite. Your TFN does not allow your employer to access your bank account. Bank details are separate. A TFN is used mainly to identify you for tax purposes when you earn income.";
+
 
 };
+
 
 
 
@@ -111,9 +116,12 @@ document.getElementById("tfnWrong2").onclick = function(){
 
 
     document.getElementById("tfnResult").innerHTML =
-    "Not quite. Your TFN does not decide your wage. Your job and workplace agreement determine your pay.";
+
+    "Not quite. Your TFN does not decide your hourly wage. Your pay depends on your job, hours worked and workplace agreement. A TFN is connected to your tax responsibilities.";
+
 
 };
+
 
 
 
@@ -170,6 +178,7 @@ function chooseJob(job,pay){
 
 
     document.getElementById("jobWelcome").innerHTML =
+
     playerName + ", you are now a " + playerJob + "!";
 
 
@@ -196,6 +205,7 @@ document.getElementById("startShiftButton").onclick = function(){
 
 
     document.getElementById("eventText").innerHTML =
+
     "Your manager asks you to help a customer who needs assistance.";
 
 
@@ -220,6 +230,7 @@ document.getElementById("startShiftButton").onclick = function(){
 
 
 
+
 // SHIFT CHOICES
 
 
@@ -235,17 +246,15 @@ document.getElementById("choice1").onclick = function(){
 
 
 
-
 document.getElementById("choice2").onclick = function(){
 
     completeShift(
         5,
         90,
-        "Good choice! Asking for help shows responsibility."
+        "Good decision! Asking questions shows responsibility."
     );
 
 };
-
 
 
 
@@ -286,7 +295,9 @@ function completeShift(xp,newEnergy,message){
 
 
     document.getElementById("resultText").innerHTML =
-    message + "<br><br>Your first pay has arrived!";
+
+    message + "<br><br>Your first payslip has arrived!";
+
 
 
     setTimeout(function(){
@@ -297,15 +308,13 @@ function completeShift(xp,newEnergy,message){
         payScreen.style.display = "block";
 
 
-        document.getElementById("payJob").innerHTML =
-        playerJob;
+        document.getElementById("payJob").innerHTML = playerJob;
 
 
     },3000);
 
 
 }
-
 
 
 
@@ -321,10 +330,12 @@ document.getElementById("superCorrect").onclick = function(){
 
 
     document.getElementById("superResult").innerHTML =
-    "Correct! Superannuation is money your employer contributes into your super fund to help save for your future.";
+
+    "Correct! Superannuation is money your employer contributes into a super fund for you. It is saved for your future and is separate from the money you receive in your regular pay.";
 
 
 };
+
 
 
 
@@ -334,7 +345,9 @@ document.getElementById("superWrong1").onclick = function(){
 
 
     document.getElementById("superResult").innerHTML =
-    "Not quite. Super is not extra spending money. It is saved for your future.";
+
+    "Not quite. Superannuation is not extra spending money added to your normal pay. It is kept in a super fund to help support you financially in the future.";
+
 
 };
 
@@ -347,6 +360,8 @@ document.getElementById("superWrong2").onclick = function(){
 
 
     document.getElementById("superResult").innerHTML =
-    "Not quite. Super is not a workplace fee. It is a contribution made by your employer into your super fund.";
+
+    "Not quite. Superannuation is not a payment you make to your workplace. It is a contribution made by your employer into your super fund when you are eligible.";
+
 
 };
