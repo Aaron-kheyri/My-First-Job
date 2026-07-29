@@ -1,7 +1,10 @@
-// ============================
-// GAME DATA
-// ============================
+// ===================================
+// MY FIRST JOB SIMULATOR
+// FINAL SCRIPT VERSION 3.1
+// ===================================
 
+
+// GAME DATA
 
 let playerName = "";
 
@@ -18,24 +21,32 @@ let energy = 100;
 
 let workXP = 0;
 
+let selectedAvatar = "😀";
 
 
 
 
 
-// ============================
+
+
+
+
+// ===================================
 // SCREEN SYSTEM
-// ============================
+// ===================================
 
 
-function nextScreen(screenID) {
+function nextScreen(screenID){
 
 
     document.querySelectorAll(".screen").forEach(screen => {
 
+
         screen.classList.remove("active");
 
+
     });
+
 
 
     document.getElementById(screenID).classList.add("active");
@@ -50,14 +61,17 @@ function nextScreen(screenID) {
 
 
 
-// ============================
+
+// ===================================
 // START GAME
-// ============================
+// ===================================
 
 
 function startGame(){
 
+
     nextScreen("profileScreen");
+
 
 }
 
@@ -68,9 +82,43 @@ function startGame(){
 
 
 
-// ============================
-// CREATE PROFILE
-// ============================
+
+// ===================================
+// PROFILE CREATION
+// ===================================
+
+
+document.querySelectorAll(".avatar").forEach(button => {
+
+
+    button.onclick = function(){
+
+
+        selectedAvatar = button.innerHTML;
+
+
+        document.querySelectorAll(".avatar").forEach(a=>{
+
+
+            a.style.background="#eee";
+
+
+        });
+
+
+
+        button.style.background="#667eea";
+
+
+    };
+
+
+});
+
+
+
+
+
 
 
 function createProfile(){
@@ -95,13 +143,15 @@ function createProfile(){
 
     document.getElementById("welcomeMessage").innerHTML =
 
-    "Welcome " + playerName +
-    "! Your first job journey starts now.";
+
+    selectedAvatar +
+    " Welcome " +
+    playerName +
+    "! Your first job journey begins now.";
 
 
 
     nextScreen("welcomeScreen");
-
 
 
 }
@@ -113,9 +163,10 @@ function createProfile(){
 
 
 
-// ============================
+
+// ===================================
 // TFN QUIZ
-// ============================
+// ===================================
 
 
 function answerTFN(correct){
@@ -127,19 +178,29 @@ function answerTFN(correct){
 
 
 
+
     if(correct){
+
 
 
         xp += 10;
 
 
+
         feedback.innerHTML =
+
 
         "🟩 Correct!<br><br>" +
 
-        "A TFN identifies you for tax purposes. " +
-        "It helps your employer report your income correctly." +
+        "A Tax File Number (TFN) is used to identify you " +
+
+        "for tax purposes. It helps your employer report " +
+
+        "your income correctly." +
+
         "<br><br>+10 Knowledge XP";
+
+
 
 
 
@@ -153,10 +214,14 @@ function answerTFN(correct){
 
 
 
+
+
     }
 
 
-    else{
+
+    else {
+
 
 
         feedback.innerHTML =
@@ -164,12 +229,14 @@ function answerTFN(correct){
 
         "🟥 Not quite.<br><br>" +
 
-        "A TFN does not decide your pay or give access to your bank account. " +
-        "It is used for tax purposes.";
+        "A TFN does not decide your wage and it does not " +
+
+        "give your employer access to your bank account.";
 
 
 
     }
+
 
 
 }
@@ -181,9 +248,10 @@ function answerTFN(correct){
 
 
 
-// ============================
+
+// ===================================
 // JOB SYSTEM
-// ============================
+// ===================================
 
 
 function chooseJob(job,pay){
@@ -199,13 +267,15 @@ function chooseJob(job,pay){
     document.getElementById("jobMessage").innerHTML =
 
 
-    "Congratulations! You have been accepted as a " 
-    + job + ".";
+    "Congratulations! You have been accepted as a " +
+
+    playerJob +
+
+    ".<br><br>Your first shift begins tomorrow.";
 
 
 
     nextScreen("acceptedScreen");
-
 
 
 }
@@ -218,37 +288,49 @@ function chooseJob(job,pay){
 
 
 
-// ============================
+// ===================================
 // SHIFT SYSTEM
-// ============================
+// ===================================
+
 
 
 function shiftChoice(choice){
 
 
 
+    let feedback =
+    document.getElementById("shiftFeedback");
+
+
+
+
+    money += 250;
+
+
+
+
     if(choice === 1){
 
 
-
         workXP += 5;
-
-        money += 250;
 
         energy -= 5;
 
 
 
-        document.getElementById("shiftFeedback").innerHTML =
+        feedback.innerHTML =
 
 
-        "🟩 Great work!<br><br>" +
+        "🟩 Great choice!<br><br>" +
 
-        "You helped the customer and showed great workplace skills.";
+        "You helped the customer and showed strong " +
+
+        "workplace skills.<br><br>+5 Workplace XP";
 
 
 
     }
+
 
 
 
@@ -258,22 +340,23 @@ function shiftChoice(choice){
 
         workXP += 3;
 
-        money += 250;
-
         energy -= 8;
 
 
 
-        document.getElementById("shiftFeedback").innerHTML =
+        feedback.innerHTML =
 
 
         "🟩 Good decision!<br><br>" +
 
-        "Asking questions helps you learn and improve.";
+        "Asking your manager for help shows responsibility." +
+
+        "<br><br>+3 Workplace XP";
 
 
 
     }
+
 
 
 
@@ -282,16 +365,18 @@ function shiftChoice(choice){
 
 
 
-        money += 250;
-
         energy -= 15;
 
 
 
-        document.getElementById("shiftFeedback").innerHTML =
+        feedback.innerHTML =
 
 
-        "🟥 Your manager noticed you could have helped more.";
+        "🟥 Your manager noticed you ignored a customer." +
+
+        "<br><br>You can learn from this experience.";
+
+
 
     }
 
@@ -299,13 +384,20 @@ function shiftChoice(choice){
 
 
 
-    document.getElementById("money").innerHTML = money;
+
+    document.getElementById("money").innerHTML =
+    money;
 
 
-    document.getElementById("workXP").innerHTML = workXP;
+
+    document.getElementById("workXP").innerHTML =
+    workXP;
 
 
-    document.getElementById("energy").innerHTML = energy;
+
+    document.getElementById("energy").innerHTML =
+    energy;
+
 
 
 
@@ -322,28 +414,16 @@ function shiftChoice(choice){
 
 
 }
-
-
-
-
-
-
-
-
-
-// ============================
-// PAYSLIP
-// ============================
-
+// ===================================
+// PAYSLIP SYSTEM
+// ===================================
 
 
 function openPayslip(){
 
 
-
     document.getElementById("payName").innerHTML =
     playerName;
-
 
 
     document.getElementById("payJob").innerHTML =
@@ -364,18 +444,17 @@ function openPayslip(){
 
 
 
-// ============================
+// ===================================
 // TAX QUIZ
-// ============================
-
+// ===================================
 
 
 function answerTax(correct){
 
 
-
     let feedback =
     document.getElementById("taxFeedback");
+
 
 
 
@@ -386,14 +465,23 @@ function answerTax(correct){
         xp += 10;
 
 
+
         feedback.innerHTML =
 
 
         "🟩 Correct!<br><br>" +
 
-        "Tax helps fund important community services " +
-        "such as schools, hospitals and emergency services." +
+        "Tax is money collected by the government " +
+
+        "from people who earn income. " +
+
+        "It helps pay for services like schools, hospitals, " +
+
+        "roads and emergency services." +
+
         "<br><br>+10 Knowledge XP";
+
+
 
 
 
@@ -408,7 +496,10 @@ function answerTax(correct){
 
 
 
+
+
     }
+
 
 
 
@@ -422,10 +513,13 @@ function answerTax(correct){
         "🟥 Not quite.<br><br>" +
 
         "Tax is not a workplace fee. " +
-        "It helps fund services used by the community.";
+
+        "It helps fund important community services.";
+
 
 
     }
+
 
 
 
@@ -438,10 +532,10 @@ function answerTax(correct){
 
 
 
-// ============================
-// SUPER QUIZ
-// ============================
 
+// ===================================
+// SUPER QUIZ
+// ===================================
 
 
 function answerSuper(correct){
@@ -449,12 +543,14 @@ function answerSuper(correct){
 
 
     let feedback =
-
     document.getElementById("superFeedback");
 
 
 
+
+
     if(correct){
+
 
 
         xp += 10;
@@ -467,8 +563,11 @@ function answerSuper(correct){
         "🟩 Correct!<br><br>" +
 
         "Superannuation is money your employer contributes " +
+
         "into a super fund to help save for your future." +
+
         "<br><br>+10 Knowledge XP";
+
 
 
 
@@ -484,7 +583,10 @@ function answerSuper(correct){
 
 
 
+
+
     }
+
 
 
 
@@ -497,12 +599,14 @@ function answerSuper(correct){
 
         "🟥 Not quite.<br><br>" +
 
-        "Super is not extra spending money. " +
-        "It is saved for your future.";
+        "Superannuation is not money you can spend " +
+
+        "straight away. It is saved for your future.";
 
 
 
     }
+
 
 
 
@@ -516,21 +620,87 @@ function answerSuper(correct){
 
 
 
-// ============================
+// ===================================
 // FINAL REPORT
-// ============================
+// ===================================
 
 
 function finishGame(){
 
 
 
+    let level = "";
+
+    let stars = "";
+
+
+
+
+
+    if(xp >= 40){
+
+
+        level = "🏆 Outstanding Employee";
+
+        stars = "⭐⭐⭐⭐⭐";
+
+
+    }
+
+
+
+    else if(xp >= 25){
+
+
+        level = "⭐ Workplace Ready";
+
+        stars = "⭐⭐⭐⭐";
+
+
+    }
+
+
+
+    else {
+
+
+        level = "📚 New Starter";
+
+        stars = "⭐⭐⭐";
+
+
+    }
+
+
+
+
+
     document.getElementById("finalMessage").innerHTML =
 
 
-    "Amazing work " + playerName +
-    "! You completed your first job journey and learned your responsibilities as an employee."+
-    "<br><br>Final Knowledge XP: " + xp;
+    "Congratulations " + playerName + "!" +
+
+    "<br><br>You completed your first job journey." +
+
+    "<br><br>📄 TFN Knowledge ✅" +
+
+    "<br>💰 Tax Knowledge ✅" +
+
+    "<br>🧾 Payslip Skills ✅" +
+
+    "<br>🏦 Super Knowledge ✅" +
+
+    "<br><br>Final Knowledge XP: " + xp +
+
+    "<br><br>" +
+
+    level +
+
+    "<br>" +
+
+    stars;
+
+
 
 
 
@@ -539,3 +709,109 @@ function finishGame(){
 
 
 }
+
+
+
+
+
+
+
+
+
+// ===================================
+// PLAY AGAIN SYSTEM
+// ===================================
+
+
+
+function restartGame(){
+
+
+
+    playerName = "";
+
+    playerJob = "";
+
+    playerPay = 0;
+
+
+    xp = 0;
+
+    money = 0;
+
+    energy = 100;
+
+    workXP = 0;
+
+
+    selectedAvatar = "😀";
+
+
+
+
+    document.getElementById("playerName").value = "";
+
+
+
+    document.getElementById("xp").innerHTML = "0";
+
+    document.getElementById("money").innerHTML = "0";
+
+    document.getElementById("workXP").innerHTML = "0";
+
+    document.getElementById("energy").innerHTML = "100";
+
+
+
+
+    document.getElementById("tfnFeedback").innerHTML = "";
+
+    document.getElementById("taxFeedback").innerHTML = "";
+
+    document.getElementById("superFeedback").innerHTML = "";
+
+    document.getElementById("shiftFeedback").innerHTML = "";
+
+
+
+
+    nextScreen("homeScreen");
+
+
+
+}
+
+
+
+
+
+
+
+
+function returnHome(){
+
+
+    nextScreen("homeScreen");
+
+
+}
+
+
+
+
+
+
+
+
+// ===================================
+// BUTTON CONNECTIONS
+// ===================================
+
+
+document.getElementById("openPayslipButton")?.addEventListener(
+
+"click",
+
+openPayslip
+
+);
