@@ -5,6 +5,7 @@ const characterScreen = document.getElementById("characterScreen");
 const tfnScreen = document.getElementById("tfnScreen");
 const jobScreen = document.getElementById("jobScreen");
 const shiftScreen = document.getElementById("shiftScreen");
+const phoneScreen = document.getElementById("phoneScreen");
 const payScreen = document.getElementById("payScreen");
 
 
@@ -12,9 +13,12 @@ let playerName = "";
 let playerJob = "";
 let playerPay = 0;
 
+
 let money = 0;
 let experience = 0;
 let energy = 100;
+
+
 
 
 
@@ -23,6 +27,7 @@ let energy = 100;
 startButton.onclick = function(){
 
     homeScreen.style.display = "none";
+
     characterScreen.style.display = "block";
 
 };
@@ -30,7 +35,11 @@ startButton.onclick = function(){
 
 
 
-// ENTER NAME
+
+
+
+
+// NAME
 
 document.getElementById("continueButton").onclick = function(){
 
@@ -47,11 +56,15 @@ document.getElementById("continueButton").onclick = function(){
     }
 
 
+
     characterScreen.style.display = "none";
+
     tfnScreen.style.display = "block";
 
 
+
     document.getElementById("tfnStory").innerHTML =
+
     "You finished your interview and have been offered your first job!";
 
 };
@@ -62,7 +75,9 @@ document.getElementById("continueButton").onclick = function(){
 
 
 
-// TFN QUESTION
+
+
+// TFN CORRECT
 
 
 document.getElementById("tfnCorrect").onclick = function(){
@@ -70,7 +85,7 @@ document.getElementById("tfnCorrect").onclick = function(){
 
     document.getElementById("tfnResult").innerHTML =
 
-    "Correct! A Tax File Number (TFN) is a unique number used to identify you for tax purposes. When you earn money, your employer uses your TFN to help report your income and manage your tax responsibilities correctly.";
+    "🟩 Correct! Your Tax File Number (TFN) is a unique number used to identify you for tax purposes. It helps your employer report your income and manage your tax responsibilities correctly.";
 
 
 
@@ -82,6 +97,7 @@ document.getElementById("tfnCorrect").onclick = function(){
         jobScreen.style.display = "block";
 
 
+
         document.getElementById("welcomeText").innerHTML =
 
         "Welcome " + playerName + "! Choose your first job.";
@@ -90,11 +106,16 @@ document.getElementById("tfnCorrect").onclick = function(){
     },4000);
 
 
+
 };
 
 
 
 
+
+
+
+// TFN WRONG 1
 
 
 document.getElementById("tfnWrong1").onclick = function(){
@@ -102,7 +123,7 @@ document.getElementById("tfnWrong1").onclick = function(){
 
     document.getElementById("tfnResult").innerHTML =
 
-    "Not quite. Your TFN does not allow your employer to access your bank account. Bank details are separate. A TFN is used mainly to identify you for tax purposes when you earn income.";
+    "🟥 Not quite. A TFN does not give your employer access to your bank account. Your bank details are separate. A TFN is used mainly for tax purposes when you earn money.";
 
 
 };
@@ -110,6 +131,10 @@ document.getElementById("tfnWrong1").onclick = function(){
 
 
 
+
+
+
+// TFN WRONG 2
 
 
 document.getElementById("tfnWrong2").onclick = function(){
@@ -117,7 +142,7 @@ document.getElementById("tfnWrong2").onclick = function(){
 
     document.getElementById("tfnResult").innerHTML =
 
-    "Not quite. Your TFN does not decide your hourly wage. Your pay depends on your job, hours worked and workplace agreement. A TFN is connected to your tax responsibilities.";
+    "🟥 Not quite. Your TFN does not decide your wage. Your pay depends on your job, hours worked and workplace agreement. Your TFN relates to your tax responsibilities.";
 
 
 };
@@ -130,7 +155,7 @@ document.getElementById("tfnWrong2").onclick = function(){
 
 
 
-// JOB SELECTION
+// JOB CHOICE
 
 
 const jobButtons = document.querySelectorAll(".jobButton");
@@ -164,6 +189,7 @@ jobButtons[2].onclick = function(){
 
 
 
+
 function chooseJob(job,pay){
 
 
@@ -172,9 +198,11 @@ function chooseJob(job,pay){
     playerPay = pay;
 
 
+
     jobScreen.style.display = "none";
 
     shiftScreen.style.display = "block";
+
 
 
     document.getElementById("jobWelcome").innerHTML =
@@ -204,6 +232,7 @@ document.getElementById("startShiftButton").onclick = function(){
     document.getElementById("shiftEvent").style.display = "block";
 
 
+
     document.getElementById("eventText").innerHTML =
 
     "Your manager asks you to help a customer who needs assistance.";
@@ -211,14 +240,19 @@ document.getElementById("startShiftButton").onclick = function(){
 
 
     document.getElementById("choice1").innerHTML =
+
     "Help the customer politely";
 
 
+
     document.getElementById("choice2").innerHTML =
+
     "Ask your manager for help";
 
 
+
     document.getElementById("choice3").innerHTML =
+
     "Ignore the customer";
 
 
@@ -231,12 +265,13 @@ document.getElementById("startShiftButton").onclick = function(){
 
 
 
-// SHIFT CHOICES
+
+// SHIFT ANSWERS
 
 
 document.getElementById("choice1").onclick = function(){
 
-    completeShift(
+    finishShift(
         10,
         95,
         "Great work! The customer appreciated your help."
@@ -246,21 +281,25 @@ document.getElementById("choice1").onclick = function(){
 
 
 
+
+
 document.getElementById("choice2").onclick = function(){
 
-    completeShift(
+    finishShift(
         5,
         90,
-        "Good decision! Asking questions shows responsibility."
+        "Good choice! Asking questions shows responsibility."
     );
 
 };
 
 
 
+
+
 document.getElementById("choice3").onclick = function(){
 
-    completeShift(
+    finishShift(
         0,
         85,
         "Your manager noticed you could have helped more."
@@ -275,7 +314,7 @@ document.getElementById("choice3").onclick = function(){
 
 
 
-function completeShift(xp,newEnergy,message){
+function finishShift(xp,newEnergy,message){
 
 
     experience += xp;
@@ -296,7 +335,7 @@ function completeShift(xp,newEnergy,message){
 
     document.getElementById("resultText").innerHTML =
 
-    message + "<br><br>Your first payslip has arrived!";
+    message + "<br><br>Your employer sent you a notification!";
 
 
 
@@ -305,16 +344,45 @@ function completeShift(xp,newEnergy,message){
 
         shiftScreen.style.display = "none";
 
-        payScreen.style.display = "block";
-
-
-        document.getElementById("payJob").innerHTML = playerJob;
+        phoneScreen.style.display = "block";
 
 
     },3000);
 
 
+
 }
+
+
+
+
+
+
+
+
+
+// OPEN PAYSLIP
+
+
+document.getElementById("openPayslipButton").onclick = function(){
+
+
+    phoneScreen.style.display = "none";
+
+
+    payScreen.style.display = "block";
+
+
+
+    document.getElementById("payName").innerHTML = playerName;
+
+
+    document.getElementById("payJob").innerHTML = playerJob;
+
+
+
+};
+
 
 
 
@@ -331,11 +399,10 @@ document.getElementById("superCorrect").onclick = function(){
 
     document.getElementById("superResult").innerHTML =
 
-    "Correct! Superannuation is money your employer contributes into a super fund for you. It is saved for your future and is separate from the money you receive in your regular pay.";
+    "🟩 Correct! Superannuation is money your employer contributes into a super fund for your future. It is separate from your normal pay and helps you save for retirement.";
 
 
 };
-
 
 
 
@@ -346,7 +413,7 @@ document.getElementById("superWrong1").onclick = function(){
 
     document.getElementById("superResult").innerHTML =
 
-    "Not quite. Superannuation is not extra spending money added to your normal pay. It is kept in a super fund to help support you financially in the future.";
+    "🟥 Not quite. Superannuation is not extra money you can spend immediately. It is saved in a super fund for your future.";
 
 
 };
@@ -361,7 +428,7 @@ document.getElementById("superWrong2").onclick = function(){
 
     document.getElementById("superResult").innerHTML =
 
-    "Not quite. Superannuation is not a payment you make to your workplace. It is a contribution made by your employer into your super fund when you are eligible.";
+    "🟥 Not quite. Superannuation is not a fee you pay. It is a contribution made by your employer into your super fund.";
 
 
 };
