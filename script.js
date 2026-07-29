@@ -1,5 +1,5 @@
 // =====================================
-// MY FIRST JOB SIMULATOR v3.2
+// MY FIRST JOB SIMULATOR v3.3
 // =====================================
 
 
@@ -21,8 +21,120 @@ let workXP = 0;
 
 let avatar = "😀";
 
-
 let badges = [];
+
+let testScore = 0;
+
+let currentQuestion = 0;
+
+
+
+
+
+
+
+
+// FINAL TEST QUESTIONS
+
+const finalQuestions = [
+
+
+{
+question:
+"You receive your first payslip and notice some money was taken out as tax. Why did this happen?",
+
+answers:
+[
+"Your employer kept the money as a workplace fee",
+
+"The money was collected as tax to help fund community services",
+
+"The money disappeared because your pay was calculated incorrectly"
+],
+
+correct:1
+
+},
+
+
+
+{
+question:
+"Why is checking your payslip important when you start working?",
+
+answers:
+[
+"It helps you understand your pay, tax and superannuation information",
+
+"It only shows your manager's details",
+
+"It is optional and does not contain important information"
+],
+
+correct:0
+
+},
+
+
+
+{
+question:
+"Why does your employer need your Tax File Number (TFN)?",
+
+answers:
+[
+"To see your personal bank account",
+
+"To decide how many hours you can work",
+
+"To correctly manage your tax information"
+],
+
+correct:2
+
+},
+
+
+
+{
+question:
+"Why does your employer contribute money into your superannuation?",
+
+answers:
+[
+"To give you extra money to spend immediately",
+
+"To help save money for your future",
+
+"To replace your normal wages"
+],
+
+correct:1
+
+},
+
+
+
+{
+question:
+"What is a responsible habit when receiving your first payment?",
+
+answers:
+[
+"Ignore your payslip because mistakes never happen",
+
+"Spend all your money straight away",
+
+"Check your payslip and understand where your money goes"
+],
+
+correct:2
+
+}
+
+
+];
+
 
 
 
@@ -39,18 +151,20 @@ let badges = [];
 function nextScreen(screenID){
 
 
-    document.querySelectorAll(".screen").forEach(screen => {
-
-        screen.classList.remove("active");
-
-    });
+document.querySelectorAll(".screen").forEach(screen=>{
 
 
+screen.classList.remove("active");
 
-    document.getElementById(screenID).classList.add("active");
+
+});
+
+
+document.getElementById(screenID).classList.add("active");
 
 
 }
+
 
 
 
@@ -60,22 +174,23 @@ function nextScreen(screenID){
 
 
 // =====================================
-// PROGRESS SYSTEM
+// PROGRESS
 // =====================================
 
 
-function updateProgress(amount, stage){
+function updateProgress(amount,stage){
 
 
-    document.getElementById("progressBar").style.width =
-    amount + "%";
+document.getElementById("progressBar").style.width =
+amount + "%";
 
 
-    document.getElementById("stageText").innerHTML =
-    "Stage: " + stage;
+document.getElementById("stageText").innerHTML =
+"Stage: " + stage;
 
 
 }
+
 
 
 
@@ -92,13 +207,14 @@ function updateProgress(amount, stage){
 function startGame(){
 
 
-    updateProgress(5,"Creating Employee Profile");
+updateProgress(5,"Creating Employee Profile");
 
 
-    nextScreen("profileScreen");
+nextScreen("profileScreen");
 
 
 }
+
 
 
 
@@ -115,24 +231,29 @@ function startGame(){
 document.querySelectorAll(".avatar").forEach(button=>{
 
 
-    button.onclick=function(){
+button.onclick=function(){
 
 
-        avatar = button.innerHTML;
-
-
-        document.querySelectorAll(".avatar").forEach(a=>{
-
-            a.style.background="#eee";
-
-        });
+avatar = button.innerHTML;
 
 
 
-        button.style.background="#667eea";
+document.querySelectorAll(".avatar").forEach(a=>{
 
 
-    };
+a.style.background="#eee";
+
+
+});
+
+
+
+button.style.background="#667eea";
+
+
+
+};
+
 
 
 });
@@ -145,37 +266,37 @@ document.querySelectorAll(".avatar").forEach(button=>{
 function createProfile(){
 
 
-    playerName =
-    document.getElementById("playerName").value;
+playerName =
+document.getElementById("playerName").value;
 
 
 
-    if(playerName===""){
+if(playerName===""){
 
 
-        alert("Please enter your name!");
+alert("Please enter your name!");
 
-        return;
-
-
-    }
+return;
 
 
-
-    document.getElementById("welcomeMessage").innerHTML =
-
-
-    avatar + " Welcome " + playerName +
-
-    "! Your first job journey begins now.";
+}
 
 
 
-    updateProgress(10,"Learning Workplace Basics");
+document.getElementById("welcomeMessage").innerHTML =
+
+
+avatar + " Welcome " + playerName +
+
+"! Your first job journey begins now.";
 
 
 
-    nextScreen("welcomeScreen");
+updateProgress(10,"Learning Workplace Basics");
+
+
+
+nextScreen("welcomeScreen");
 
 
 }
@@ -197,68 +318,59 @@ function answerTFN(correct){
 
 
 
-    let box =
-    document.getElementById("tfnFeedback");
+let box =
+document.getElementById("tfnFeedback");
 
 
 
-    if(correct){
-
-
-        xp += 10;
-
-
-        addBadge(
-        "📄 TFN Starter",
-        "You learnt why a TFN is important."
-        );
+if(correct){
 
 
 
-        box.innerHTML =
+xp += 10;
 
 
-        "🟩 Correct!<br><br>" +
-
-        "A TFN identifies you for tax purposes " +
-
-        "and helps your employer manage your income information." +
-
-        "<br><br>+10 XP";
+addBadge(
+"📄 TFN Starter",
+"You learnt why a TFN is important."
+);
 
 
 
-        updateProgress(30,"Choosing Your First Job");
+box.innerHTML =
+
+"🟩 Correct!<br><br>" +
+
+"A TFN helps your employer and the government correctly manage your tax information.";
 
 
 
-        setTimeout(()=>{
-
-
-            nextScreen("jobScreen");
-
-
-        },3000);
+updateProgress(35,"Choosing Your First Job");
 
 
 
-    }
+setTimeout(()=>{
 
-    else{
+nextScreen("jobScreen");
 
-
-        box.innerHTML =
-
-
-        "🟥 Not quite.<br><br>" +
-
-        "A TFN is not used to control your wage " +
-
-        "or access your bank account.";
+},2500);
 
 
 
-    }
+}
+
+else{
+
+
+box.innerHTML =
+
+"🟥 Not quite.<br><br>" +
+
+"A TFN is used for tax purposes, not for accessing your bank account or setting your wage.";
+
+
+}
+
 
 
 }
@@ -280,26 +392,26 @@ function chooseJob(job,pay){
 
 
 
-    playerJob = job;
+playerJob = job;
 
-    playerPay = pay;
-
-
-
-    document.getElementById("jobMessage").innerHTML =
-
-
-    "Congratulations! You got the job as a " +
-
-    job + ".";
+playerPay = pay;
 
 
 
-    updateProgress(45,"Starting Your First Shift");
+document.getElementById("jobMessage").innerHTML =
+
+
+"Congratulations! You have been accepted as a " +
+
+job + ".";
 
 
 
-    nextScreen("acceptedScreen");
+updateProgress(45,"Starting Your First Shift");
+
+
+
+nextScreen("acceptedScreen");
 
 
 }
@@ -321,96 +433,86 @@ function shiftChoice(choice){
 
 
 
-    let feedback =
-    document.getElementById("shiftFeedback");
+let feedback =
+document.getElementById("shiftFeedback");
 
 
 
-    money = 250;
+money = 250;
 
 
 
-    if(choice===1){
+if(choice===1){
 
 
-        workXP += 5;
-
-        energy -= 5;
+workXP +=5;
 
 
-
-        feedback.innerHTML =
-
-
-        "🟩 Great choice!<br><br>" +
-
-        "You helped the customer and showed good teamwork.";
+energy -=5;
 
 
+feedback.innerHTML =
 
-    }
+"🟩 Great choice! You showed teamwork and customer service skills.";
+
+
+}
 
 
 
-    else if(choice===2){
+else if(choice===2){
+
+
+workXP +=3;
+
+
+energy -=8;
+
+
+feedback.innerHTML =
+
+"🟩 Good choice! Asking for help is responsible.";
+
+
+}
 
 
 
-        workXP += 3;
-
-        energy -= 8;
+else{
 
 
+energy -=15;
 
-        feedback.innerHTML =
+
+feedback.innerHTML =
+
+"🟥 Ignoring customers can create problems at work. Learn from this experience.";
 
 
-        "🟩 Good choice!<br><br>" +
-
-        "Asking questions helps you improve.";
-
-    }
+}
 
 
 
-    else{
+document.getElementById("money").innerHTML = money;
 
+document.getElementById("workXP").innerHTML = workXP;
 
-        energy -= 15;
-
-
-
-        feedback.innerHTML =
-
-
-        "🟥 Your manager noticed you ignored the customer.";
+document.getElementById("energy").innerHTML = energy;
 
 
 
-    }
+updateProgress(60,"Receiving Your Payslip");
 
 
 
-
-    document.getElementById("money").innerHTML = money;
-
-    document.getElementById("workXP").innerHTML = workXP;
-
-    document.getElementById("energy").innerHTML = energy;
+setTimeout(()=>{
 
 
-
-    updateProgress(60,"Checking Your Payslip");
-
+nextScreen("phoneScreen");
 
 
-    setTimeout(()=>{
+},2500);
 
-
-        nextScreen("phoneScreen");
-
-
-    },2500);
 
 
 }
@@ -432,28 +534,27 @@ function openPayslip(){
 
 
 
-    document.getElementById("payName").innerHTML =
-    playerName;
+document.getElementById("payName").innerHTML =
+playerName;
+
+
+document.getElementById("payJob").innerHTML =
+playerJob;
 
 
 
-    document.getElementById("payJob").innerHTML =
-    playerJob;
+addBadge(
+"🧾 Payslip Pro",
+"You learnt how to understand your pay information."
+);
 
 
 
-    addBadge(
-    "🧾 Payslip Pro",
-    "You learnt how to read your payslip."
-    );
+updateProgress(70,"Understanding Tax");
 
 
 
-    updateProgress(70,"Learning About Tax");
-
-
-
-    nextScreen("payslipScreen");
+nextScreen("payslipScreen");
 
 
 }
@@ -475,67 +576,61 @@ function answerTax(correct){
 
 
 
-    let box =
-    document.getElementById("taxFeedback");
+let box =
+document.getElementById("taxFeedback");
 
 
 
-    if(correct){
+if(correct){
 
 
-        xp += 10;
-
-
-
-        addBadge(
-        "💰 Tax Explorer",
-        "You understand why workers pay tax."
-        );
+xp +=10;
 
 
 
-        box.innerHTML =
-
-
-        "🟩 Correct!<br><br>" +
-
-        "Tax helps fund important services " +
-
-        "such as schools, hospitals and roads." +
-
-        "<br><br>+10 XP";
+addBadge(
+"💰 Tax Explorer",
+"You understand why tax is collected."
+);
 
 
 
-        updateProgress(85,"Learning Superannuation");
+box.innerHTML =
+
+"🟩 Correct!<br><br>" +
+
+"Tax helps pay for important community services.";
 
 
 
-        setTimeout(()=>{
-
-
-            nextScreen("superScreen");
-
-
-        },3000);
+updateProgress(85,"Learning Superannuation");
 
 
 
-    }
-
-    else{
+setTimeout(()=>{
 
 
-        box.innerHTML =
+nextScreen("superScreen");
 
 
-        "🟥 Not quite.<br><br>" +
-
-        "Tax helps fund services used by the community.";
+},2500);
 
 
 
-    }
+}
+
+else{
+
+
+box.innerHTML =
+
+"🟥 Not quite.<br><br>" +
+
+"Tax is collected by the government to help provide services.";
+
+
+}
+
 
 
 }
@@ -557,69 +652,239 @@ function answerSuper(correct){
 
 
 
-    let box =
-    document.getElementById("superFeedback");
+let box =
+document.getElementById("superFeedback");
 
 
 
-    if(correct){
-
-
-        xp += 10;
+if(correct){
 
 
 
-        addBadge(
-        "🏦 Future Planner",
-        "You understand superannuation."
-        );
+xp +=10;
 
 
 
-        box.innerHTML =
-
-
-        "🟩 Correct!<br><br>" +
-
-        "Superannuation is money your employer " +
-
-        "contributes to help save for your future." +
-
-        "<br><br>+10 XP";
+addBadge(
+"🏦 Future Planner",
+"You understand superannuation."
+);
 
 
 
-        updateProgress(100,"Journey Complete");
+box.innerHTML =
+
+"🟩 Correct!<br><br>" +
+
+"Superannuation helps save money for your future.";
 
 
 
-        setTimeout(()=>{
-
-
-            finishGame();
-
-
-        },3000);
+updateProgress(100,"Final Employee Challenge");
 
 
 
-    }
-
-    else{
+setTimeout(()=>{
 
 
-        box.innerHTML =
+startFinalTest();
 
 
-        "🟥 Not quite.<br><br>" +
-
-        "Super is saved for your future, " +
-
-        "not immediate spending.";
+},2500);
 
 
 
-    }
+}
+
+else{
+
+
+box.innerHTML =
+
+"🟥 Not quite.<br><br>" +
+
+"Superannuation is saved for your future, not immediate spending.";
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// =====================================
+// FINAL TEST
+// =====================================
+
+
+function startFinalTest(){
+
+
+currentQuestion = 0;
+
+testScore = 0;
+
+
+nextScreen("finalTestScreen");
+
+
+showQuestion();
+
+
+}
+
+
+
+
+
+
+
+
+
+function showQuestion(){
+
+
+
+let question =
+finalQuestions[currentQuestion];
+
+
+
+document.getElementById("questionNumber").innerHTML =
+
+
+"Question " + 
+(currentQuestion+1) +
+"/5";
+
+
+
+document.getElementById("finalQuestion").innerHTML =
+
+
+question.question;
+
+
+
+let answers = "";
+
+
+
+question.answers.forEach((answer,index)=>{
+
+
+answers +=
+
+
+`<button onclick="checkAnswer(${index})">
+
+${answer}
+
+</button>`;
+
+
+});
+
+
+
+document.getElementById("finalAnswers").innerHTML =
+answers;
+
+
+
+document.getElementById("testFeedback").innerHTML = "";
+
+
+}
+
+
+
+
+
+
+
+
+
+function checkAnswer(answer){
+
+
+
+let question =
+finalQuestions[currentQuestion];
+
+
+
+let feedback =
+document.getElementById("testFeedback");
+
+
+
+if(answer===question.correct){
+
+
+testScore++;
+
+
+feedback.innerHTML =
+
+"🟩 Correct! Great understanding.";
+
+
+
+}
+
+else{
+
+
+feedback.innerHTML =
+
+"🟥 Incorrect.<br><br>" +
+
+"The correct answer was:<br>" +
+
+question.answers[question.correct];
+
+
+
+}
+
+
+
+setTimeout(()=>{
+
+
+currentQuestion++;
+
+
+
+if(currentQuestion < finalQuestions.length){
+
+
+showQuestion();
+
+
+}
+
+else{
+
+
+finishGame();
+
+
+}
+
+
+
+},2500);
+
 
 
 }
@@ -641,24 +906,22 @@ function addBadge(title,description){
 
 
 
-    if(!badges.some(b=>b.title===title)){
+if(!badges.some(b=>b.title===title)){
 
 
-        badges.push({
+badges.push({
 
-            title:title,
+title:title,
 
-            description:description
+description:description
 
-        });
-
-
-    }
+});
 
 
 }
 
 
+}
 
 
 
@@ -668,33 +931,37 @@ function addBadge(title,description){
 function displayBadges(){
 
 
-
-    let area =
-    document.getElementById("badgeList");
-
-
-
-    area.innerHTML = "";
+let area =
+document.getElementById("badgeList");
 
 
 
-    badges.forEach(b=>{
+area.innerHTML="";
 
 
-        area.innerHTML +=
+
+badges.forEach(b=>{
 
 
-        `<div class="badge">
-
-        ${b.title}<br>
-
-        <small>${b.description}</small>
-
-        </div>`;
+area.innerHTML +=
 
 
-    });
+`
 
+<div class="badge">
+
+${b.title}
+
+<br>
+
+<small>${b.description}</small>
+
+</div>
+
+`;
+
+
+});
 
 
 }
@@ -708,7 +975,7 @@ function displayBadges(){
 
 
 // =====================================
-// FINAL
+// FINAL CERTIFICATE
 // =====================================
 
 
@@ -716,57 +983,56 @@ function finishGame(){
 
 
 
-    let rank;
+document.getElementById("certificateName").innerHTML =
+playerName;
 
 
 
-    if(xp>=40){
-
-
-        rank="🏆 Outstanding Employee";
-
-
-    }
-
-    else if(xp>=25){
-
-
-        rank="⭐ Workplace Ready";
-
-
-    }
-
-    else{
-
-
-        rank="📚 New Starter";
-
-
-    }
+document.getElementById("testScore").innerHTML =
+testScore;
 
 
 
-
-    document.getElementById("finalMessage").innerHTML =
-
-
-    "Congratulations " + playerName +
-
-    "!<br><br>" +
-
-    "You completed your first job journey." +
-
-    "<br><br>Final XP: " + xp +
-
-    "<br><br>" + rank;
+let rank;
 
 
 
-    displayBadges();
+if(testScore===5){
+
+
+rank="🏆 READY FOR YOUR FIRST JOB";
+
+
+}
+
+else if(testScore>=3){
+
+
+rank="⭐ WORKPLACE READY";
+
+
+}
+
+else{
+
+
+rank="📚 KEEP LEARNING";
+
+
+}
 
 
 
-    nextScreen("finalScreen");
+document.getElementById("finalRank").innerHTML =
+rank;
+
+
+
+displayBadges();
+
+
+
+nextScreen("finalScreen");
 
 
 }
@@ -788,60 +1054,47 @@ function restartGame(){
 
 
 
-    playerName="";
+playerName="";
 
-    playerJob="";
+playerJob="";
 
-    playerPay=0;
+playerPay=0;
 
+xp=0;
 
-    xp=0;
+money=0;
 
-    money=0;
+energy=100;
 
-    energy=100;
+workXP=0;
 
-    workXP=0;
+badges=[];
 
+testScore=0;
 
-    badges=[];
-
-
-    document.getElementById("playerName").value="";
-
-
-
-    document.getElementById("xp").innerHTML="0";
-
-
-    document.getElementById("money").innerHTML="0";
-
-
-    document.getElementById("workXP").innerHTML="0";
-
-
-    document.getElementById("energy").innerHTML="100";
+currentQuestion=0;
 
 
 
-    document.getElementById("tfnFeedback").innerHTML="";
-
-
-    document.getElementById("taxFeedback").innerHTML="";
-
-
-    document.getElementById("superFeedback").innerHTML="";
-
-
-    document.getElementById("shiftFeedback").innerHTML="";
+document.getElementById("playerName").value="";
 
 
 
-    updateProgress(0,"Starting Journey");
+document.getElementById("xp").innerHTML="0";
+
+document.getElementById("money").innerHTML="0";
+
+document.getElementById("workXP").innerHTML="0";
+
+document.getElementById("energy").innerHTML="100";
 
 
 
-    nextScreen("homeScreen");
+updateProgress(0,"Starting Journey");
+
+
+
+nextScreen("homeScreen");
 
 
 }
@@ -854,7 +1107,7 @@ function restartGame(){
 function returnHome(){
 
 
-    nextScreen("homeScreen");
+nextScreen("homeScreen");
 
 
 }
