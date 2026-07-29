@@ -470,3 +470,698 @@ Choose
 
 
 </section>
+<!-- ACCEPTED JOB -->
+
+<section class="screen" id="acceptedScreen">
+
+
+<h1>
+✅ Job Accepted
+</h1>
+
+
+<div class="story-card">
+
+
+<p id="jobMessage"></p>
+
+
+<p>
+Your first shift starts today!
+</p>
+
+
+</div>
+
+
+<button onclick="nextScreen('shiftScreen')">
+
+Start Shift
+
+</button>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- SHIFT -->
+
+<section class="screen" id="shiftScreen">
+
+
+<h1>
+🛠️ First Shift
+</h1>
+
+
+
+<div class="stats-card">
+
+
+<p>
+💰 Money Earned: $<span id="money">0</span>
+</p>
+
+
+<p>
+⭐ Workplace XP:
+<span id="workXP">0</span>
+</p>
+
+
+<p>
+⚡ Energy:
+<span id="energy">100</span>%
+</p>
+
+
+</div>
+
+
+
+
+<div class="story-card">
+
+
+<p>
+A customer approaches you with a question.
+</p>
+
+
+<h3>
+What should you do?
+</h3>
+
+
+</div>
+
+
+
+
+<button onclick="shiftChoice(1)">
+
+Help the customer politely
+
+</button>
+
+
+
+<button onclick="shiftChoice(2)">
+
+Ask your manager for advice
+
+</button>
+
+
+
+<button onclick="shiftChoice(3)">
+
+Ignore the customer
+
+</button>
+
+
+
+
+<p id="shiftFeedback"></p>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- PHONE -->
+
+<section class="screen" id="phoneScreen">
+
+
+<h1>
+📱 Phone
+</h1>
+
+
+
+<div class="notification">
+
+
+<h2>
+🔔 New Message
+</h2>
+
+
+
+<p>
+Your first payslip has arrived!
+</p>
+
+
+
+<p>
+Tap below to view your payment details.
+</p>
+
+
+
+<button onclick="openPayslip()">
+
+Open Payslip
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- PAYSLIP -->
+
+<section class="screen" id="payslipScreen">
+
+
+<h1>
+🧾 First Payslip
+</h1>
+
+
+
+<div class="payslip">
+
+
+<h2>
+My First Job
+</h2>
+
+
+
+<p>
+Employee:
+<span id="payName"></span>
+</p>
+
+
+
+<p>
+Job:
+<span id="payJob"></span>
+</p>
+
+
+<hr>
+
+
+
+<p>
+💵 Money Earned:
++$250
+</p>
+
+
+
+<p>
+💰 Tax Taken Out:
+-$25
+</p>
+
+
+
+<p>
+🏦 Super Contribution:
++$27.50
+</p>
+
+
+
+<hr>
+
+
+
+<h3>
+Money Received:
+$225
+</h3>
+
+
+
+</div>
+
+
+
+
+
+<div class="story-card">
+
+
+<p>
+"Wait... I earned $250, but why did I only receive $225?"
+</p>
+
+
+</div>
+
+
+
+<button onclick="nextScreen('taxStoryScreen')">
+
+Find Out Why
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- TAX STORY -->
+
+<section class="screen" id="taxStoryScreen">
+
+
+<h1>
+💰 Where Did My Money Go?
+</h1>
+
+
+
+<div class="story-card">
+
+
+<p>
+Your manager explains:
+</p>
+
+
+
+<p>
+"When you earn money, some of it may be taken as tax."
+</p>
+
+
+
+<p>
+"Tax is collected by the government and helps pay for services like schools, hospitals, roads and emergency services."
+</p>
+
+
+
+<div class="money-box">
+
+
+<p>
+Your Payment</p>
+
+
+<p>
++$250 Earned</p>
+
+
+<p>
+-$25 Tax</p>
+
+
+<hr>
+
+
+<p>
+$225 Received</p>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+<button onclick="nextScreen('taxQuizScreen')">
+
+Test Your Knowledge
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- TAX QUIZ -->
+
+<section class="screen" id="taxQuizScreen">
+
+
+<h1>
+🧠 Tax Challenge
+</h1>
+
+
+
+<h2>
+Why was $25 taken from your pay?
+</h2>
+
+
+
+<button onclick="answerTax(false)">
+
+My employer kept it as a workplace fee
+
+</button>
+
+
+
+<button onclick="answerTax(true)">
+
+It was collected as tax to help fund community services
+
+</button>
+
+
+
+<button onclick="answerTax(false)">
+
+It was added to my bank account later
+
+</button>
+
+
+
+<p id="taxFeedback"></p>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- SUPER STORY -->
+
+<section class="screen" id="superScreen">
+
+
+<h1>
+🏦 Understanding Superannuation
+</h1>
+
+
+
+<div class="story-card">
+
+
+<p>
+You notice your employer contributed money into your super fund.
+</p>
+
+
+
+<p>
+Superannuation is money paid by your employer to help save for your future.
+</p>
+
+
+
+<p>
+It is an important responsibility when you start working.
+</p>
+
+
+
+</div>
+
+
+
+<button onclick="nextScreen('superQuizScreen')">
+
+Continue
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- SUPER QUIZ -->
+
+<section class="screen" id="superQuizScreen">
+
+
+<h1>
+🧠 Super Challenge
+</h1>
+
+
+
+<h2>
+Why does your employer contribute to super?
+</h2>
+
+
+
+<button onclick="answerSuper(false)">
+
+Because it is extra spending money immediately
+
+</button>
+
+
+
+<button onclick="answerSuper(true)">
+
+Because it helps save money for your future
+
+</button>
+
+
+
+<button onclick="answerSuper(false)">
+
+Because it replaces your normal pay
+
+</button>
+
+
+
+<p id="superFeedback"></p>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- FINAL TEST -->
+
+<section class="screen" id="finalTestScreen">
+
+
+<h1>
+🎯 First Job Challenge
+</h1>
+
+
+
+<p id="questionNumber">
+Question 1/5
+</p>
+
+
+
+<h2 id="finalQuestion">
+
+</h2>
+
+
+
+<div id="finalAnswers">
+
+</div>
+
+
+
+<p id="testFeedback"></p>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- CERTIFICATE -->
+
+<section class="screen" id="finalScreen">
+
+
+<h1>
+🎓 First Job Certificate
+</h1>
+
+
+
+
+<div class="certificate">
+
+
+
+<p>
+Awarded to:
+</p>
+
+
+
+<h2 id="certificateName">
+
+</h2>
+
+
+
+<p>
+Knowledge Test:
+<span id="testScore"></span>/5
+</p>
+
+
+
+<hr>
+
+
+
+<p>
+✅ TFN Responsibilities
+</p>
+
+
+<p>
+✅ Tax Understanding
+</p>
+
+
+<p>
+✅ Payslip Skills
+</p>
+
+
+<p>
+✅ Superannuation Knowledge
+</p>
+
+
+<p>
+✅ Workplace Money Skills
+</p>
+
+
+
+
+<h2 id="finalRank">
+
+</h2>
+
+
+
+</div>
+
+
+
+
+
+<h2>
+🏅 Badges
+</h2>
+
+
+
+<div id="badgeList">
+
+</div>
+
+
+
+
+<button onclick="restartGame()">
+
+🔄 Play Again
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+
+
+</div>
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
