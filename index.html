@@ -28,7 +28,6 @@
 
 
 
-<!-- PROGRESS -->
 
 <div class="progress-container">
 
@@ -43,8 +42,8 @@ Stage: Starting Journey
 
 </div>
 
-
 </div>
+
 
 
 
@@ -57,9 +56,7 @@ Stage: Starting Journey
 
 
 <div class="app-icon">
-
 📱
-
 </div>
 
 
@@ -69,8 +66,9 @@ My First Job
 
 
 <p>
-Learn what you need to know before earning money.
+Learn the responsibilities of earning money for the first time.
 </p>
+
 
 
 <button onclick="startGame()">
@@ -89,18 +87,19 @@ Start Journey
 
 
 
+
 <!-- PROFILE -->
 
 <section class="screen" id="profileScreen">
 
 
 <h1>
-👤 Employee Profile
+👤 Create Employee
 </h1>
 
 
 <p>
-Create your worker profile.
+Create your worker profile before starting your first job.
 </p>
 
 
@@ -109,9 +108,11 @@ id="playerName"
 placeholder="Enter your name">
 
 
+
 <h3>
 Choose Avatar
 </h3>
+
 
 
 <div class="avatars">
@@ -157,6 +158,7 @@ Continue
 
 
 
+
 <!-- WELCOME -->
 
 <section class="screen" id="welcomeScreen">
@@ -175,13 +177,8 @@ Continue
 
 
 <h2>
-Employee Level
+Employee Progress
 </h2>
-
-
-<p>
-Beginner Worker ⭐
-</p>
 
 
 <p>
@@ -217,8 +214,9 @@ Begin Training
 
 
 <h1>
-📄 Getting Hired
+📄 Starting Your Job
 </h1>
+
 
 
 <div class="story-card">
@@ -230,16 +228,17 @@ Your manager sends you a message:
 
 
 <p>
-"Congratulations! We are excited to have you join the team."
+"Welcome to the team! Before your first shift, we need some important information."
 </p>
 
 
 <p>
-"Before your first shift, we need some important information."
+"One of the first things you need is a Tax File Number."
 </p>
 
 
 </div>
+
 
 
 <button onclick="nextScreen('tfnLessonScreen')">
@@ -258,45 +257,49 @@ Next
 
 
 
+
 <!-- TFN LESSON -->
 
 <section class="screen" id="tfnLessonScreen">
 
 
 <h1>
-📄 Tax File Number
+📄 What is a TFN?
 </h1>
+
 
 
 <div class="story-card">
 
 
 <p>
-Your manager explains:
+A Tax File Number (TFN) is a unique number used for tax purposes.
 </p>
 
 
 <p>
-"A Tax File Number (TFN) is a unique number used to identify you for tax purposes."
+Your TFN helps your employer and the government correctly manage information about your income.
 </p>
 
 
 <p>
-"It helps your employer manage your tax information when you earn money."
+Providing your TFN helps make sure your tax is handled correctly.
 </p>
 
 
 </div>
 
 
+
 <button onclick="nextScreen('tfnQuizScreen')">
 
-Next
+Take Challenge
 
 </button>
 
 
 </section>
+
 
 
 
@@ -315,9 +318,26 @@ Next
 </h1>
 
 
+
 <h2>
-What is a TFN used for?
+Why does your employer need your TFN?
 </h2>
+
+
+
+<button onclick="answerTFN(false)">
+
+To see your bank account details
+
+</button>
+
+
+
+<button onclick="answerTFN(true)">
+
+To correctly manage your tax information
+
+</button>
 
 
 
@@ -329,28 +349,21 @@ To decide your hourly wage
 
 
 
-<button onclick="answerTFN(true)">
-
-To identify you for tax purposes
-
-</button>
-
-
-
-<button onclick="answerTFN(false)">
-
-To access your bank account
-
-</button>
-
-
-
 <p id="tfnFeedback"></p>
 
 
 
 </section>
-<!-- JOB SCREEN -->
+
+
+
+
+
+
+
+
+
+<!-- JOB -->
 
 <section class="screen" id="jobScreen">
 
@@ -361,7 +374,7 @@ To access your bank account
 
 
 <p>
-Pick a job and begin your workplace journey.
+Choose where your first workplace journey begins.
 </p>
 
 
@@ -375,7 +388,7 @@ Pick a job and begin your workplace journey.
 
 
 <p>
-Learn teamwork and customer service.
+Build teamwork and customer service skills.
 </p>
 
 
@@ -386,7 +399,7 @@ Pay: $25/hour
 
 <button onclick="chooseJob('Fast Food Worker',25)">
 
-Apply
+Choose
 
 </button>
 
@@ -417,7 +430,7 @@ Pay: $27/hour
 
 <button onclick="chooseJob('Retail Assistant',27)">
 
-Apply
+Choose
 
 </button>
 
@@ -448,7 +461,7 @@ Pay: $26/hour
 
 <button onclick="chooseJob('Café Worker',26)">
 
-Apply
+Choose
 
 </button>
 
@@ -457,545 +470,3 @@ Apply
 
 
 </section>
-
-
-
-
-
-
-
-
-
-<!-- ACCEPTED -->
-
-<section class="screen" id="acceptedScreen">
-
-
-<h1>
-✅ Job Accepted
-</h1>
-
-
-<div class="story-card">
-
-
-<p id="jobMessage"></p>
-
-
-<p>
-Your first shift starts now.
-</p>
-
-
-</div>
-
-
-
-<button onclick="nextScreen('shiftScreen')">
-
-Start Shift
-
-</button>
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- SHIFT -->
-
-<section class="screen" id="shiftScreen">
-
-
-<h1>
-🛠️ First Shift
-</h1>
-
-
-
-<div class="stats-card">
-
-
-<p>
-💰 Money: $<span id="money">0</span>
-</p>
-
-
-<p>
-⭐ Workplace XP:
-<span id="workXP">0</span>
-</p>
-
-
-<p>
-⚡ Energy:
-<span id="energy">100</span>%
-</p>
-
-
-</div>
-
-
-
-<div class="story-card">
-
-
-<p>
-A customer needs help at work.
-</p>
-
-
-<p>
-What should you do?
-</p>
-
-
-</div>
-
-
-
-<button onclick="shiftChoice(1)">
-
-Help the customer politely
-
-</button>
-
-
-<button onclick="shiftChoice(2)">
-
-Ask your manager for help
-
-</button>
-
-
-<button onclick="shiftChoice(3)">
-
-Ignore the customer
-
-</button>
-
-
-
-<p id="shiftFeedback"></p>
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- PHONE -->
-
-<section class="screen" id="phoneScreen">
-
-
-<h1>
-📱 Phone
-</h1>
-
-
-
-<div class="notification">
-
-
-<h2>
-🔔 New Notification
-</h2>
-
-
-<p>
-Your first payslip is available.
-</p>
-
-
-
-<button onclick="nextScreen('payslipScreen')">
-
-Open Payslip
-
-</button>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- PAYSLIP -->
-
-<section class="screen" id="payslipScreen">
-
-
-<h1>
-🧾 Payslip
-</h1>
-
-
-
-<div class="payslip">
-
-
-<h2>
-My First Job
-</h2>
-
-
-<p>
-Employee:
-<span id="payName"></span>
-</p>
-
-
-<p>
-Job:
-<span id="payJob"></span>
-</p>
-
-
-<hr>
-
-
-<p>
-Hours Worked: 10
-</p>
-
-
-<p>
-Gross Pay: $250
-</p>
-
-
-<p>
-Tax Withheld: $0
-</p>
-
-
-<p>
-Super Contribution: $27.50
-</p>
-
-
-<p>
-Take Home Pay: $250
-</p>
-
-
-
-</div>
-
-
-
-<button onclick="nextScreen('taxScreen')">
-
-Learn About Tax
-
-</button>
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- TAX -->
-
-<section class="screen" id="taxScreen">
-
-
-<h1>
-💰 Understanding Tax
-</h1>
-
-
-
-<div class="story-card">
-
-
-<p>
-Your manager explains:
-</p>
-
-
-<p>
-"Tax is money collected by the government from people who earn income."
-</p>
-
-
-<p>
-"It helps pay for services like hospitals, schools, roads and emergency services."
-</p>
-
-
-</div>
-
-
-
-<button onclick="nextScreen('taxQuizScreen')">
-
-Next
-
-</button>
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- TAX QUIZ -->
-
-<section class="screen" id="taxQuizScreen">
-
-
-<h1>
-🧠 Tax Challenge
-</h1>
-
-
-
-<h2>
-Why do workers pay tax?
-</h2>
-
-
-
-<button onclick="answerTax(false)">
-
-Because workplaces charge a fee
-
-</button>
-
-
-
-<button onclick="answerTax(true)">
-
-To help fund community services
-
-</button>
-
-
-
-<button onclick="answerTax(false)">
-
-Because everyone pays the same amount
-
-</button>
-
-
-
-<p id="taxFeedback"></p>
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- SUPER -->
-
-<section class="screen" id="superScreen">
-
-
-<h1>
-🏦 Superannuation
-</h1>
-
-
-
-<div class="story-card">
-
-
-<p>
-You notice money has gone into super.
-</p>
-
-
-<p>
-Your manager explains:
-</p>
-
-
-<p>
-"Superannuation is money your employer contributes into a super fund to help save for your future."
-</p>
-
-
-</div>
-
-
-
-<button onclick="nextScreen('superQuizScreen')">
-
-Next
-
-</button>
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- SUPER QUIZ -->
-
-<section class="screen" id="superQuizScreen">
-
-
-<h1>
-🧠 Super Challenge
-</h1>
-
-
-
-<h2>
-What is superannuation?
-</h2>
-
-
-
-<button onclick="answerSuper(false)">
-
-Money you spend immediately
-
-</button>
-
-
-
-<button onclick="answerSuper(false)">
-
-A workplace fee
-
-</button>
-
-
-
-<button onclick="answerSuper(true)">
-
-Money saved for your future
-
-</button>
-
-
-
-<p id="superFeedback"></p>
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- FINAL -->
-
-<section class="screen" id="finalScreen">
-
-
-<h1>
-🎓 Employee Report
-</h1>
-
-
-
-<div class="stats-card">
-
-
-<h2>
-Congratulations!
-</h2>
-
-
-<p id="finalMessage"></p>
-
-
-
-<h2>
-🏅 Badges
-</h2>
-
-
-<div id="badgeList">
-
-</div>
-
-
-
-</div>
-
-
-
-<button onclick="restartGame()">
-
-🔄 Play Again
-
-</button>
-
-
-
-<button onclick="returnHome()">
-
-📱 Return Home
-
-</button>
-
-
-
-</section>
-
-
-
-
-
-
-</div>
-
-
-<script src="script.js"></script>
-
-
-</body>
-
-</html>
