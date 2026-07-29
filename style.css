@@ -44,3 +44,11 @@ button:hover {
     transform: scale(1.05);
     background: #1d4ed8;
 }
+input{
+    width:80%;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    font-size:18px;
+    text-align:center;
+}
