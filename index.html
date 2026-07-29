@@ -365,3 +365,714 @@
 
 
     </section>
+
+
+
+
+
+    <!-- JOB BOARD -->
+
+
+    <section class="screen" id="jobScreen">
+
+
+        <h1>
+        💼 Job Board
+        </h1>
+
+
+        <p>
+        Choose your first workplace.
+        </p>
+
+
+
+
+        <div class="job-card">
+
+
+            <h2>
+            🍔 Fast Food Worker
+            </h2>
+
+
+            <p>
+            Skills:
+            </p>
+
+
+            <p>
+            ⭐ Teamwork<br>
+            ⭐ Customer Service
+            </p>
+
+
+            <p>
+            Pay: $25/hour
+            </p>
+
+
+            <button onclick="chooseJob('Fast Food Worker',25)">
+
+                Apply
+
+            </button>
+
+
+        </div>
+
+
+
+
+
+
+        <div class="job-card">
+
+
+            <h2>
+            🛒 Retail Assistant
+            </h2>
+
+
+            <p>
+            Skills:
+            </p>
+
+
+            <p>
+            ⭐ Communication<br>
+            ⭐ Problem Solving
+            </p>
+
+
+            <p>
+            Pay: $27/hour
+            </p>
+
+
+            <button onclick="chooseJob('Retail Assistant',27)">
+
+                Apply
+
+            </button>
+
+
+        </div>
+
+
+
+
+
+
+        <div class="job-card">
+
+
+            <h2>
+            ☕ Café Worker
+            </h2>
+
+
+            <p>
+            Skills:
+            </p>
+
+
+            <p>
+            ⭐ Organisation<br>
+            ⭐ Customer Service
+            </p>
+
+
+            <p>
+            Pay: $26/hour
+            </p>
+
+
+            <button onclick="chooseJob('Café Worker',26)">
+
+                Apply
+
+            </button>
+
+
+        </div>
+
+
+    </section>
+
+
+
+
+
+
+
+
+
+    <!-- JOB ACCEPTED -->
+
+
+    <section class="screen" id="acceptedScreen">
+
+
+        <h1>
+        ✅ Application Accepted
+        </h1>
+
+
+
+        <div class="story-card">
+
+
+            <p id="jobMessage"></p>
+
+
+            <p>
+            Your first shift begins tomorrow.
+            </p>
+
+
+        </div>
+
+
+
+        <button onclick="nextScreen('shiftScreen')">
+
+            Start Shift
+
+        </button>
+
+
+    </section>
+
+
+
+
+
+
+
+
+    <!-- SHIFT -->
+
+
+    <section class="screen" id="shiftScreen">
+
+
+        <h1>
+        🛠️ First Shift
+        </h1>
+
+
+
+        <div class="stats-card">
+
+
+            <p>
+            💰 Money:
+            $<span id="money">0</span>
+            </p>
+
+
+            <p>
+            ⭐ XP:
+            <span id="workXP">0</span>
+            </p>
+
+
+            <p>
+            ⚡ Energy:
+            <span id="energy">100</span>%
+            </p>
+
+
+        </div>
+
+
+
+
+
+        <div class="story-card">
+
+
+            <p id="shiftStory">
+
+            Your manager walks over to you.
+
+            </p>
+
+
+
+        </div>
+
+
+
+
+
+
+        <button onclick="shiftChoice(1)">
+
+        Help the customer politely
+
+        </button>
+
+
+
+        <button onclick="shiftChoice(2)">
+
+        Ask your manager for help
+
+        </button>
+
+
+
+        <button onclick="shiftChoice(3)">
+
+        Ignore the customer
+
+        </button>
+
+
+
+
+        <p id="shiftFeedback"></p>
+
+
+
+    </section>
+
+
+
+
+
+
+
+
+    <!-- PHONE NOTIFICATION -->
+
+
+    <section class="screen" id="phoneScreen">
+
+
+        <h1>
+        📱 Phone
+        </h1>
+
+
+
+
+        <div class="notification">
+
+
+            🔔 New Notification
+
+
+            <p>
+            Your employer has uploaded your first payslip.
+            </p>
+
+
+            <button onclick="nextScreen('payslipScreen')">
+
+            Open Payslip
+
+            </button>
+
+
+        </div>
+
+
+
+    </section>
+
+
+
+
+
+
+
+
+    <!-- PAYSLIP -->
+
+
+    <section class="screen" id="payslipScreen">
+
+
+        <h1>
+        🧾 Payslip
+        </h1>
+
+
+
+
+        <div class="payslip">
+
+
+            <h3>
+            My First Job
+            </h3>
+
+
+            <p>
+            Employee:
+            <span id="payName"></span>
+            </p>
+
+
+            <p>
+            Job:
+            <span id="payJob"></span>
+            </p>
+
+
+            <hr>
+
+
+            <p>
+            Hours Worked: 10
+            </p>
+
+
+            <p>
+            Hourly Rate: $25
+            </p>
+
+
+            <p>
+            Gross Pay: $250
+            </p>
+
+
+            <p>
+            Tax Withheld: $0
+            </p>
+
+
+            <p>
+            Super Contribution: $27.50
+            </p>
+
+
+        </div>
+
+
+
+
+        <p>
+        Your manager notices you have questions about tax.
+        </p>
+
+
+
+
+        <button onclick="nextScreen('taxScreen')">
+
+        Learn About Tax
+
+        </button>
+
+
+    </section>
+
+
+
+
+
+
+
+
+
+    <!-- TAX LESSON -->
+
+
+    <section class="screen" id="taxScreen">
+
+
+        <h1>
+        💰 Understanding Tax
+        </h1>
+
+
+
+
+        <div class="story-card">
+
+
+            <p>
+            Your manager explains:
+            </p>
+
+
+
+            <p>
+            "Tax is money collected by the government from people who earn income."
+            </p>
+
+
+
+            <p>
+            "It helps pay for services like hospitals, schools, roads and emergency services."
+            </p>
+
+
+
+        </div>
+
+
+
+
+        <button onclick="nextScreen('taxQuizScreen')">
+
+        Next
+
+        </button>
+
+
+
+    </section>
+
+
+
+
+
+
+
+
+    <!-- TAX QUIZ -->
+
+
+    <section class="screen" id="taxQuizScreen">
+
+
+        <h1>
+        🧠 Tax Challenge
+        </h1>
+
+
+
+        <h2>
+        Why do workers pay tax?
+        </h2>
+
+
+
+
+        <button onclick="answerTax(false)">
+
+        Because workplaces charge employees a fee
+
+        </button>
+
+
+
+        <button onclick="answerTax(true)">
+
+        To help fund services used by the community
+
+        </button>
+
+
+
+        <button onclick="answerTax(false)">
+
+        Because everyone pays exactly the same amount
+
+        </button>
+
+
+
+        <p id="taxFeedback"></p>
+
+
+
+    </section>
+
+
+
+
+
+
+
+
+
+    <!-- SUPER LESSON -->
+
+
+    <section class="screen" id="superScreen">
+
+
+        <h1>
+        🏦 Superannuation
+        </h1>
+
+
+
+
+        <div class="story-card">
+
+
+            <p>
+            You notice money has gone into something called super.
+            </p>
+
+
+            <p>
+            Your manager explains:
+            </p>
+
+
+            <p>
+            "Superannuation is money your employer contributes into a super fund to help save for your future."
+            </p>
+
+
+        </div>
+
+
+
+        <button onclick="nextScreen('superQuizScreen')">
+
+        Next
+
+        </button>
+
+
+
+    </section>
+
+
+
+
+
+
+
+
+    <!-- SUPER QUIZ -->
+
+
+    <section class="screen" id="superQuizScreen">
+
+
+        <h1>
+        🧠 Super Challenge
+        </h1>
+
+
+
+        <h2>
+        What is superannuation?
+        </h2>
+
+
+
+
+        <button onclick="answerSuper(false)">
+
+        Extra spending money you get immediately
+
+        </button>
+
+
+
+        <button onclick="answerSuper(false)">
+
+        A fee you pay your workplace
+
+        </button>
+
+
+
+        <button onclick="answerSuper(true)">
+
+        Money your employer contributes for your future
+
+        </button>
+
+
+
+
+        <p id="superFeedback"></p>
+
+
+
+
+    </section>
+
+
+
+
+
+
+
+
+    <!-- FINAL REPORT -->
+
+
+    <section class="screen" id="finalScreen">
+
+
+        <h1>
+        🎓 Employee Report
+        </h1>
+
+
+
+
+        <div class="stats-card">
+
+
+            <h2>
+            Congratulations!
+            </h2>
+
+
+            <p id="finalMessage"></p>
+
+
+
+            <p>
+            📄 TFN Knowledge ✅
+            </p>
+
+
+            <p>
+            💰 Tax Knowledge ✅
+            </p>
+
+
+            <p>
+            🧾 Payslips ✅
+            </p>
+
+
+            <p>
+            🏦 Superannuation ✅
+            </p>
+
+
+
+            <h2>
+            Workplace Ready ⭐⭐⭐⭐⭐
+            </h2>
+
+
+
+        </div>
+
+
+
+    </section>
+
+
+
+
+
+
+</div>
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
