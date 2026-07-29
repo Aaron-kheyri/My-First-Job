@@ -38,100 +38,102 @@ let currentQuestion = 0;
 
 const finalQuestions = [
 
-
 {
 question:
-"You receive your first payslip and notice some money was taken out as tax. Why did this happen?",
+"It's your first day at work and your manager asks you to provide your Tax File Number (TFN) before your first pay is processed. Why is giving your employer your TFN important?",
 
-answers:
-[
-"Your employer kept the money as a workplace fee",
-
-"The money was collected as tax to help fund community services",
-
-"The money disappeared because your pay was calculated incorrectly"
+answers:[
+"It helps your employer correctly manage your tax information when you are paid.",
+"It allows your employer to access your personal bank account.",
+"It decides how much you will be paid each hour."
 ],
 
-correct:1
+correct:0,
 
+correctMessage:
+"Excellent! A TFN helps your employer correctly report your income and manage your tax information.",
+
+wrongMessage:
+"Not quite. Your TFN is used for tax purposes. It does not allow your employer to access your bank account or decide your pay."
 },
 
-
-
 {
 question:
-"Why is checking your payslip important when you start working?",
+"After your first shift, you notice the amount deposited into your bank account is a little lower than you expected. What is the most likely reason?",
 
-answers:
-[
-"It helps you understand your pay, tax and superannuation information",
-
-"It only shows your manager's details",
-
-"It is optional and does not contain important information"
+answers:[
+"The bank randomly removed some of your money.",
+"Some money may have been taken as tax before you were paid.",
+"Your employer forgot to pay you the full amount."
 ],
 
-correct:0
+correct:1,
 
+correctMessage:
+"Correct! Depending on your situation, some money may be deducted as tax before your pay reaches your bank account.",
+
+wrongMessage:
+"Not quite. In many jobs, tax may be deducted before you receive your pay, which is why the amount can be lower."
 },
 
-
-
 {
 question:
-"Why does your employer need your Tax File Number (TFN)?",
+"A friend says they never bother reading their payslip because the money is already in their bank account. What would be the best advice to give them?",
 
-answers:
-[
-"To see your personal bank account",
-
-"To decide how many hours you can work",
-
-"To correctly manage your tax information"
+answers:[
+"Reading your payslip helps you understand your earnings, tax and super contributions.",
+"You only need to read your payslip if something goes wrong.",
+"Payslips are mainly for your employer, so you can ignore them."
 ],
 
-correct:2
+correct:0,
 
+correctMessage:
+"Great answer! Checking your payslip helps you understand how you were paid and lets you spot any mistakes.",
+
+wrongMessage:
+"Not quite. Payslips contain important information about your pay, tax and super, so it's a good habit to read them."
 },
 
-
-
 {
 question:
-"Why does your employer contribute money into your superannuation?",
+"You notice your employer has made a contribution to your superannuation fund, but that money is not in your bank account. Why?",
 
-answers:
-[
-"To give you extra money to spend immediately",
-
-"To help save money for your future",
-
-"To replace your normal wages"
+answers:[
+"The money is being saved to help support you in the future.",
+"Your employer forgot to transfer it into your account.",
+"The money is kept until the end of the year before you can spend it."
 ],
 
-correct:1
+correct:0,
 
+correctMessage:
+"Exactly! Superannuation is money set aside to help support you later in life.",
+
+wrongMessage:
+"Not quite. Super isn't spending money—it's a long-term saving for your future."
 },
 
-
-
 {
 question:
-"What is a responsible habit when receiving your first payment?",
+"It's Friday afternoon. You've received your first pay, your payslip, and you know tax and super have been included. What is the MOST responsible thing to do next?",
 
-answers:
-[
-"Ignore your payslip because mistakes never happen",
-
-"Spend all your money straight away",
-
-"Check your payslip and understand where your money goes"
+answers:[
+"Read your payslip, understand your tax and super information, and keep the payslip for your records.",
+"Spend all your money immediately because you can always earn more next week.",
+"Ignore your payslip because your employer has already paid you."
 ],
 
-correct:2
+correct:0,
 
+correctMessage:
+"Fantastic! Understanding your payslip and keeping your records is a responsible habit when you start working.",
+
+wrongMessage:
+"Not quite. Checking your payslip and understanding your responsibilities helps you manage your money and make sure everything is correct."
 }
 
+];
 
 ];
 
