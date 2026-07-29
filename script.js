@@ -4,6 +4,9 @@ const homeScreen = document.getElementById("homeScreen");
 
 const characterScreen = document.getElementById("characterScreen");
 
+const jobScreen = document.getElementById("jobScreen");
+
+
 startButton.onclick = function () {
 
     homeScreen.style.display = "none";
@@ -11,6 +14,7 @@ startButton.onclick = function () {
     characterScreen.style.display = "block";
 
 };
+
 
 document.getElementById("continueButton").onclick = function () {
 
@@ -24,6 +28,12 @@ document.getElementById("continueButton").onclick = function () {
 
     }
 
-    alert("Welcome " + name + "! Your journey begins.");
+
+    characterScreen.style.display = "none";
+
+    jobScreen.style.display = "block";
+
+    document.getElementById("welcomeText").innerHTML =
+    "Welcome " + name + "! Choose your first job.";
 
 };
