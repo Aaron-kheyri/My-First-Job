@@ -2,11 +2,16 @@
 <html>
 
 <head>
+
     <title>My First Job</title>
+
     <link rel="stylesheet" href="style.css">
+
 </head>
 
+
 <body>
+
 
 
 <div class="app" id="homeScreen">
@@ -18,7 +23,9 @@
     Learn about jobs, tax and super.
     </p>
 
-    <button id="startButton">Start Game</button>
+    <button id="startButton">
+        Start Game
+    </button>
 
 </div>
 
@@ -32,16 +39,22 @@
 
     <p>What is your name?</p>
 
+
     <input 
     type="text" 
     id="playerName"
     placeholder="Enter your name">
 
+
     <br><br>
 
-    <button id="continueButton">Continue</button>
+
+    <button id="continueButton">
+        Continue
+    </button>
 
 </div>
+
 
 
 
@@ -65,13 +78,14 @@
 
 
     <p>
-    "Before you start, we need some personal details from you."
+    "Before your first day, we need some personal details from you."
     </p>
 
 
     <p>
     "One important thing we need is your Tax File Number (TFN)."
     </p>
+
 
 
     <h3>
@@ -96,13 +110,11 @@
 
 
 
-
     <button class="tfnChoice" id="tfnWrong2">
 
     A number that decides how much money you earn
 
     </button>
-
 
 
     <p id="tfnResult"></p>
@@ -116,7 +128,9 @@
 
 
 
+
 <div class="app" id="jobScreen" style="display:none;">
+
 
     <h1>💼 Choose Your First Job</h1>
 
@@ -127,20 +141,26 @@
 
     <div class="jobCard">
 
+
         <h2>🍔 Fast Food Worker</h2>
 
         <p>Learn teamwork and customer service</p>
 
         <p>Pay: $25/hour</p>
 
-        <button class="jobButton">Choose</button>
+        <button class="jobButton">
+            Choose
+        </button>
+
 
     </div>
 
 
 
 
+
     <div class="jobCard">
+
 
         <h2>🛒 Retail Assistant</h2>
 
@@ -148,7 +168,10 @@
 
         <p>Pay: $27/hour</p>
 
-        <button class="jobButton">Choose</button>
+        <button class="jobButton">
+            Choose
+        </button>
+
 
     </div>
 
@@ -158,18 +181,23 @@
 
     <div class="jobCard">
 
+
         <h2>☕ Café Worker</h2>
 
         <p>Develop workplace skills</p>
 
         <p>Pay: $26/hour</p>
 
-        <button class="jobButton">Choose</button>
+        <button class="jobButton">
+            Choose
+        </button>
+
 
     </div>
 
 
 </div>
+
 
 
 
@@ -186,7 +214,6 @@
     <p id="jobWelcome"></p>
 
 
-
     <h2>Your Stats</h2>
 
 
@@ -201,7 +228,7 @@
 
     <button id="startShiftButton">
 
-    Start Shift
+        Start Shift
 
     </button>
 
@@ -217,7 +244,6 @@
         <p id="eventText"></p>
 
 
-
         <button class="choiceButton" id="choice1"></button>
 
         <button class="choiceButton" id="choice2"></button>
@@ -225,17 +251,104 @@
         <button class="choiceButton" id="choice3"></button>
 
 
-
     </div>
-
 
 
 
     <p id="resultText"></p>
 
 
+</div>
+
+
+
+
+
+
+
+
+<div class="app" id="payScreen" style="display:none;">
+
+
+    <h1>📱 First Pay</h1>
+
+
+    <p>
+    Your phone buzzes...
+    </p>
+
+
+    <p>
+    "Your first payslip is available!"
+    </p>
+
+
+
+    <h2>🧾 Payslip</h2>
+
+
+    <p>Job: <span id="payJob"></span></p>
+
+    <p>Hours worked: 10</p>
+
+    <p>Hourly rate: $25</p>
+
+    <p>Gross pay: $250</p>
+
+    <p>Tax withheld: $0</p>
+
+    <p>Super contribution: $27.50</p>
+
+
+
+    <h3>
+    You notice something called super...
+    </h3>
+
+
+    <p>
+    "Why did my employer put money somewhere I can't spend?"
+    </p>
+
+
+
+    <h3>
+    What is superannuation?
+    </h3>
+
+
+
+    <button class="superChoice" id="superCorrect">
+
+    Money your employer contributes for your future
+
+    </button>
+
+
+
+    <button class="superChoice" id="superWrong1">
+
+    Extra money you can spend immediately
+
+    </button>
+
+
+
+    <button class="superChoice" id="superWrong2">
+
+    A fee you have to pay your workplace
+
+    </button>
+
+
+
+    <p id="superResult"></p>
+
+
 
 </div>
+
+
 
 
 
