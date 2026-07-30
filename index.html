@@ -1,694 +1,2108 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>My First Job Simulator</title>
+    <title>My First Job: Workplace Ready</title>
 
-<link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
-
 <div class="phone">
 
+    <!-- ========================= -->
+    <!-- PHONE STATUS BAR -->
+    <!-- ========================= -->
 
-<div class="status-bar">
+    <div class="status-bar">
 
-<span>📶</span>
-<span>My First Job</span>
-<span>🔋</span>
+        <span id="phoneTime">7:45 AM</span>
+
+        <div class="status-icons">
+            <span>📶</span>
+            <span>🔋</span>
+        </div>
+
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- GAME HEADER -->
+    <!-- ========================= -->
+
+    <div class="game-header">
+
+        <div>
+            <span id="dayLabel">MONDAY</span>
+            <h3 id="careerTitle">👤 Job Seeker</h3>
+        </div>
+
+        <div class="header-stats">
+
+            <span id="xpDisplay">⭐ 0 XP</span>
+
+            <span id="repDisplay">💼 3/5</span>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- CAREER PROGRESS -->
+    <!-- ========================= -->
+
+    <div class="career-bar-container">
+
+        <div class="career-bar-top">
+
+            <span>Career Progress</span>
+
+            <span id="careerProgressText">0%</span>
+
+        </div>
+
+        <div class="progress-track">
+
+            <div
+                class="progress-fill"
+                id="careerProgressFill">
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- NOTIFICATION -->
+    <!-- ========================= -->
+
+    <div
+        class="notification"
+        id="notification"
+        style="display:none;">
+
+        <div class="notification-icon">
+            🔔
+        </div>
+
+        <div>
+
+            <strong id="notificationTitle">
+                New Notification
+            </strong>
+
+            <p id="notificationMessage">
+                You have a new message.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- HOME SCREEN -->
+    <!-- ========================= -->
+
+    <section
+        class="screen active"
+        id="homeScreen">
+
+        <div class="home-content">
+
+            <div class="app-logo">
+                💼
+            </div>
+
+            <h1>My First Job</h1>
+
+            <h2>Workplace Ready</h2>
+
+            <p class="hero-text">
+                Experience your first week at work and discover what you need to know about tax, super and your responsibilities as a new employee.
+            </p>
+
+
+            <div class="home-features">
+
+                <div>
+                    📄
+                    <span>Learn</span>
+                </div>
+
+                <div>
+                    🎮
+                    <span>Play</span>
+                </div>
+
+                <div>
+                    🏆
+                    <span>Progress</span>
+                </div>
+
+            </div>
+
+
+            <button
+                class="primary-button"
+                id="startButton">
+
+                🚀 Start Journey
+
+            </button>
+
+
+            <button
+                class="secondary-button"
+                id="aboutButton">
+
+                ℹ️ How To Play
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- ABOUT SCREEN -->
+    <!-- ========================= -->
+
+    <section
+        class="screen"
+        id="aboutScreen">
+
+        <button
+            class="back-button"
+            id="aboutBackButton">
+
+            ← Back
+
+        </button>
+
+        <h1>📱 How To Play</h1>
+
+        <div class="info-card">
+
+            <h3>🎮 Your Mission</h3>
+
+            <p>
+                Live through your first week at work and learn the responsibilities that come with earning money.
+            </p>
+
+        </div>
+
+        <div class="info-card">
+
+            <h3>📅 Your Week</h3>
+
+            <p>
+                Monday → Get the job
+            </p>
+
+            <p>
+                Tuesday → First shift
+            </p>
+
+            <p>
+                Wednesday → First payslip
+            </p>
+
+            <p>
+                Thursday → Super
+            </p>
+
+            <p>
+                Friday → Final interview
+            </p>
+
+        </div>
+
+        <div class="info-card">
+
+            <h3>🏆 Your Goal</h3>
+
+            <p>
+                Make good decisions, learn your workplace responsibilities and become Workplace Ready.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- CREATE EMPLOYEE -->
+    <!-- ========================= -->
+
+    <section
+        class="screen"
+        id="profileScreen">
+
+        <div class="day-badge">
+            📅 MONDAY
+        </div>
+
+        <h1>Create Your Employee</h1>
+
+        <p>
+            Your first week starts now.
+        </p>
+
+        <div class="info-card">
+
+            <h3>👤 Employee Name</h3>
+
+            <input
+                type="text"
+                id="playerName"
+                class="text-input"
+                placeholder="Enter your name"
+                maxlength="20">
+
+        </div>
+
+
+        <div class="info-card">
+
+            <h3>🎭 Choose Your Avatar</h3>
+
+            <div class="avatar-grid">
+
+                <button
+                    class="avatar-option selected"
+                    data-avatar="🧑">
+
+                    🧑
+
+                </button>
+
+                <button
+                    class="avatar-option"
+                    data-avatar="👩">
+
+                    👩
+
+                </button>
+
+                <button
+                    class="avatar-option"
+                    data-avatar="🧑‍💼">
+
+                    🧑‍💼
+
+                </button>
+
+                <button
+                    class="avatar-option"
+                    data-avatar="👩‍💼">
+
+                    👩‍💼
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="primary-button"
+            id="createEmployeeButton">
+
+            Continue →
+
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- MANAGER INTRO -->
+    <!-- ========================= -->
+
+    <section
+        class="screen"
+        id="managerIntroScreen">
+
+        <div class="manager-avatar">
+            👔
+        </div>
+
+        <div class="speech-card">
+
+            <span class="speaker-name">
+                Manager
+            </span>
+
+            <p id="managerIntroText">
+                Welcome to the team!
+            </p>
+
+        </div>
+
+
+        <button
+            class="primary-button"
+            id="managerIntroNext">
+
+            Continue →
+
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- JOB SELECTION -->
+    <!-- ========================= -->
+
+    <section
+        class="screen"
+        id="jobScreen">
+
+        <div class="day-badge">
+            📅 MONDAY
+        </div>
+
+        <h1>Choose Your First Job</h1>
+
+        <p>
+            Pick a job you'd like to experience this week.
+        </p>
+
+
+        <div class="job-card">
+
+            <div class="job-icon">
+                🍔
+            </div>
+
+            <div class="job-info">
+
+                <h3>Fast Food Worker</h3>
+
+                <p>
+                    Work with customers and learn teamwork.
+                </p>
+
+                <strong>
+                    $25/hour
+                </strong>
+
+            </div>
+
+            <button
+                class="job-select"
+                data-job="Fast Food Worker"
+                data-pay="25">
+
+                Choose
+
+            </button>
+
+        </div>
+
+
+        <div class="job-card">
+
+            <div class="job-icon">
+                🛒
+            </div>
+
+            <div class="job-info">
+
+                <h3>Retail Assistant</h3>
+
+                <p>
+                    Help customers and develop communication skills.
+                </p>
+
+                <strong>
+                    $27/hour
+                </strong>
+
+            </div>
+
+            <button
+                class="job-select"
+                data-job="Retail Assistant"
+                data-pay="27">
+
+                Choose
+
+            </button>
+
+        </div>
+
+
+        <div class="job-card">
+
+            <div class="job-icon">
+                ☕
+            </div>
+
+            <div class="job-info">
+
+                <h3>Café Worker</h3>
+
+                <p>
+                    Serve customers and work as part of a team.
+                </p>
+
+                <strong>
+                    $26/hour
+                </strong>
+
+            </div>
+
+            <button
+                class="job-select"
+                data-job="Café Worker"
+                data-pay="26">
+
+                Choose
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- TFN INTRO -->
+    <!-- ========================= -->
+
+    <section
+        class="screen"
+        id="tfnIntroScreen">
+
+        <div class="day-badge">
+            📅 MONDAY
+        </div>
+
+        <div class="story-icon">
+            📄
+        </div>
+
+        <h1>Employment Paperwork</h1>
+
+        <div class="speech-card">
+
+            <span class="speaker-name">
+                Manager
+            </span>
+
+            <p>
+                Before we can process your pay, there's some important employment paperwork to complete.
+            </p>
+
+        </div>
+
+        <button
+            class="primary-button"
+            id="tfnIntroNext">
+
+            Next →
+
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- TFN STORY -->
+    <!-- ========================= -->
+
+    <section
+        class="screen"
+        id="tfnScreen">
+
+        <div class="story-icon">
+            📄
+        </div>
+
+        <h1>What's a TFN?</h1>
+
+        <div class="speech-card">
+
+            <span class="speaker-name">
+                Manager
+            </span>
+
+            <p>
+                I need your Tax File Number, or TFN, so your income and tax can be recorded correctly.
+            </p>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <h3>
+                🤔 Why does your employer need it?
+            </h3>
+
+            <button
+                class="choice-button"
+                data-tfn-answer="correct">
+
+                📄
+                <span>
+                    So your tax can be handled correctly when you are paid.
+                </span>
+
+            </button>
+
+            <button
+                class="choice-button"
+                data-tfn-answer="wrong">
+
+                🏦
+                <span>
+                    So your employer can access your bank account.
+                </span>
+
+            </button>
+
+            <button
+                class="choice-button"
+                data-tfn-answer="wrong">
+
+                💰
+                <span>
+                    So your employer can decide your hourly wage.
+                </span>
+
+            </button>
+
+        </div>
+
+        <div
+            class="feedback-box"
+            id="tfnFeedback"
+            style="display:none;">
+
+        </div>
+
+        <button
+            class="primary-button"
+            id="tfnNext"
+            style="display:none;">
+
+            Continue →
+
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- TFN RESPONSIBILITY -->
+    <!-- ========================= -->
+
+    <section
+        class="screen"
+        id="tfnResponsibilityScreen">
+
+        <div class="responsibility-icon">
+            📚
+        </div>
+
+        <h1>Responsibility Unlocked!</h1>
+
+        <div class="responsibility-card">
+
+            <div class="check-icon">
+                ✓
+            </div>
+
+            <h2>TFN Responsibility</h2>
+
+            <p>
+                I understand why my employer needs my TFN and that it helps my tax information be handled correctly.
+            </p>
+
+        </div>
+
+        <div class="badge-unlock">
+
+            🏅
+            <strong>
+                TFN Starter
+            </strong>
+
+        </div>
+
+        <button
+            class="primary-button"
+            id="tfnResponsibilityNext">
+
+            Continue →
+
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- TUESDAY INTRO -->
+    <!-- ========================= -->
+
+    <section
+        class="screen"
+        id="tuesdayIntroScreen">
+
+        <div class="day-badge">
+            📅 TUESDAY
+        </div>
+
+        <div class="phone-lock-icon">
+            📱
+        </div>
+
+        <h1>Good Morning!</h1>
+
+        <div class="notification-preview">
+
+            🔔 <strong>Manager</strong>
+
+            <p>
+                Your first shift starts soon. Ready?
+            </p>
+
+        </div>
+
+        <button
+            class="primary-button"
+            id="tuesdayNext">
+
+            Start First Shift →
+
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- FIRST SHIFT -->
+    <!-- ========================= -->
+
+    <section
+        class="screen"
+        id="shiftScreen">
+
+        <div class="day-badge">
+            📅 TUESDAY
+        </div>
+
+        <h1>🛠️ First Shift</h1>
+
+        <p id="shiftJobText">
+            Your first shift is about to begin.
+        </p>
+
+
+        <div class="work-card">
+
+            <div class="work-icon">
+                👋
+            </div>
+
+            <h2>A Customer Needs Help</h2>
+
+            <p>
+                A customer approaches you and asks for help finding something.
+            </p>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <h3>
+                What do you do?
+            </h3>
+
+            <button
+                class="choice-button shift-choice"
+                data-shift-result="good">
+
+                😊
+                <span>
+                    Politely help the customer or ask a team member for assistance.
+                </span>
+
+            </button>
+
+            <button
+                class="choice-button shift-choice"
+                data-shift-result="neutral">
+
+                😐
+                <span>
+                    Tell them you are busy and walk away.
+                </span>
+
+            </button>
+
+            <button
+                class="choice-button shift-choice"
+                data-shift-result="bad">
+
+                😡
+                <span>
+                    Ignore the customer completely.
+                </span>
+
+            </button>
+
+        </div>
+
+
+        <div
+            class="feedback-box"
+            id="shiftFeedback"
+            style="display:none;">
+
+        </div>
+
+        <button
+            class="primary-button"
+            id="shiftNext"
+            style="display:none;">
+
+            Finish Shift →
+
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- TUESDAY REWARD -->
+    <!-- ========================= -->
+
+    <section
+        class="screen"
+        id="tuesdayRewardScreen">
+
+        <div class="manager-avatar">
+            👔
+        </div>
+
+        <div class="speech-card">
+
+            <span class="speaker-name">
+                Manager
+            </span>
+
+            <p id="shiftRewardMessage">
+                Great work today!
+            </p>
+
+        </div>
+
+
+        <div class="promotion-card">
+
+            <span>
+                Career Progress
+            </span>
+
+            <h2>
+                🍔 New Employee
+            </h2>
+
+            <div class="progress-track">
+
+                <div
+                    class="progress-fill"
+                    style="width:35%;">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="badge-unlock">
+
+            🏅
+            <strong>
+                First Shift Complete
+            </strong>
+
+        </div>
+
+
+        <button
+            class="primary-button"
+            id="tuesdayRewardNext">
+
+            Continue →
+
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- WEDNESDAY PAYSLIP -->
+    <!-- ========================= -->
+
+    <section
+        class="screen"
+        id="wednesdayScreen">
+
+        <div class="day-badge">
+            📅 WEDNESDAY
+        </div>
+
+        <div class="phone-lock-icon">
+            📱
+        </div>
+
+        <h1>📩 New Notification</h1>
+
+        <div class="notification-preview payslip-notification">
+
+            🧾 <strong>Your Payslip Is Ready</strong>
+
+            <p>
+                Tap to view your first payslip.
+            </p>
+
+        </div>
+
+        <button
+            class="primary-button"
+            id="openPayslipButton">
+
+            Open Payslip →
+
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- PAYSLIP -->
+    <!-- ========================= -->
+
+    <section
+        class="screen"
+        id="payslipScreen">
+
+        <div class="day-badge">
+            📅 WEDNESDAY
+        </div>
+
+        <h1>🧾 Your First Payslip</h1>
+
+        <div class="payslip">
+
+            <div class="payslip-header">
+
+                <strong>
+                    MY FIRST JOB
+                </strong>
+
+                <span>
+                    PAYSLIP
+                </span>
+
+            </div>
+
+            <div class="payslip-row">
+                <span>Employee</span>
+                <strong id="payslipName">Employee</strong>
+            </div>
+
+            <div class="payslip-row">
+                <span>Job</span>
+                <strong id="payslipJob">Worker</strong>
+            </div>
+
+            <div class="payslip-row">
+                <span>Hours Worked</span>
+                <strong>8 hours</strong>
+            </div>
+
+            <div class="payslip-row">
+                <span>Pay</span>
+                <strong id="payslipGross">$200</strong>
+            </div>
+
+            <div class="payslip-divider"></div>
+
+            <div class="payslip-row tax-row">
+                <span>Tax Deducted</span>
+                <strong id="payslipTax">-$20</strong>
+            </div>
+
+            <div class="payslip-row super-row">
+                <span>Employer Super Contribution</span>
+                <strong id="payslipSuper">$24</strong>
+            </div>
+
+            <div class="payslip-divider"></div>
+
+            <div class="payslip-row total-row">
+                <span>Pay Received</span>
+                <strong id="payslipNet">$180</strong>
+            </div>
+
+        </div>
+
+
+        <div class="speech-card">
+
+            <span class="speaker-name">
+                You
+            </span>
+
+            <p>
+                Wait... why did I receive less money than I expected?
+            </p>
+
+        </div>
+
+
+        <button
+            class="primary-button"
+            id="taxStoryButton">
+
+            Find Out Why →
+
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- TAX STORY -->
+    <!-- ========================= -->
+
+    <section
+        class="screen"
+        id="taxScreen">
+
+        <div class="story-icon">
+            💰
+        </div>
+
+        <h1>Where Did My Money Go?</h1>
+
+        <div class="speech-card">
+
+            <span class="speaker-name">
+                Manager
+            </span>
+
+            <p>
+                Some money can be taken from your pay as tax before the money reaches your bank account.
+            </p>
+
+        </div>
+
+
+        <div class="tax-explanation">
+
+            <div class="tax-item">
+                🏫
+                <span>
+                    Schools
+                </span>
+            </div>
+
+            <div class="tax-item">
+                🏥
+                <span>
+                    Hospitals
+                </span>
+            </div>
+
+            <div class="tax-item">
+                🚒
+                <span>
+                    Emergency Services
+                </span>
+            </div>
+
+            <div class="tax-item">
+                🛣️
+                <span>
+                    Roads & Infrastructure
+                </span>
+            </div>
+
+        </div>
+
+
+        <button
+            class="primary-button"
+            id="taxQuestionButton">
+
+            Continue →
+
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- TAX SCENARIO -->
+    <!-- ========================= -->
+
+    <section
+        class="screen"
+        id="taxScenarioScreen">
+
+        <div class="question-card">
+
+            <h2>
+                🤔 Your Friend Is Confused
+            </h2>
+
+            <p>
+                Your friend says:
+            </p>
+
+            <blockquote>
+                "My employer stole some of my pay!"
+            </blockquote>
+
+            <p>
+                What would you explain?
+            </p>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <button
+                class="choice-button tax-choice"
+                data-tax-result="correct">
+
+                💡
+                <span>
+                    Some of their pay may have been deducted as tax before they received it.
+                </span>
+
+            </button>
+
+            <button
+                class="choice-button tax-choice"
+                data-tax-result="wrong">
+
+                🏦
+                <span>
+                    Their bank probably took the money.
+                </span>
+
+            </button>
+
+            <button
+                class="choice-button tax-choice"
+                data-tax-result="wrong">
+
+                ❌
+                <span>
+                    Employers can keep part of your pay whenever they want.
+                </span>
+
+            </button>
+
+        </div>
+
+
+        <div
+            class="feedback-box"
+            id="taxFeedback"
+            style="display:none;">
+
+        </div>
+
+
+        <button
+            class="primary-button"
+            id="taxNext"
+            style="display:none;">
+
+            Continue →
+
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- TAX RESPONSIBILITY -->
+    <!-- ========================= -->
+
+    <section
+        class="screen"
+        id="taxResponsibilityScreen">
+
+        <div class="responsibility-icon">
+            💰
+        </div>
+
+        <h1>Responsibility Unlocked!</h1>
+
+        <div class="responsibility-card">
+
+            <div class="check-icon">
+                ✓
+            </div>
+
+            <h2>Tax Responsibility</h2>
+
+            <p>
+                I understand that tax may be deducted from my pay and why it is collected.
+            </p>
+
+        </div>
+
+        <div class="badge-unlock">
+
+            🏅
+            <strong>
+                Tax Explorer
+            </strong>
+
+        </div>
+
+        <button
+            class="primary-button"
+            id="taxResponsibilityNext">
+
+            Continue →
+
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- THURSDAY SUPER -->
+    <!-- ========================= -->
+
+    <section
+        class="screen"
+        id="thursdayScreen">
+
+        <div class="day-badge">
+            📅 THURSDAY
+        </div>
+
+        <div class="phone-lock-icon">
+            📱
+        </div>
+
+        <h1>🏦 New Notification</h1>
+
+        <div class="notification-preview">
+
+            💰 <strong>Super Contribution Received</strong>
+
+            <p>
+                Your employer has made a super contribution.
+            </p>
+
+        </div>
+
+        <button
+            class="primary-button"
+            id="superOpenButton">
+
+            Find Out More →
+
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- SUPER STORY -->
+    <!-- ========================= -->
+
+    <section
+        class="screen"
+        id="superScreen">
+
+        <div class="story-icon">
+            🏦
+        </div>
+
+        <h1>What's Super?</h1>
+
+        <div class="speech-card">
+
+            <span class="speaker-name">
+                Manager
+            </span>
+
+            <p>
+                Superannuation is money your employer contributes to help support you financially in the future.
+            </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <h3>
+                💡 Important
+            </h3>
+
+            <p>
+                Super is generally not money you receive in your normal bank account to spend straight away. It is designed for your longer-term future.
+            </p>
+
+        </div>
+
+
+        <button
+            class="primary-button"
+            id="superQuestionButton">
+
+            Continue →
+
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- SUPER SCENARIO -->
+    <!-- ========================= -->
+
+    <section
+        class="screen"
+        id="superScenarioScreen">
+
+        <div class="question-card">
+
+            <h2>
+                🤔 Your Co-worker Asks
+            </h2>
+
+            <p>
+                "Why isn't my super contribution in my bank account?"
+            </p>
+
+            <p>
+                What would you tell them?
+            </p>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <button
+                class="choice-button super-choice"
+                data-super-result="correct">
+
+                🏦
+                <span>
+                    Super is generally set aside for your future rather than being paid directly into your everyday bank account.
+                </span>
+
+            </button>
+
+            <button
+                class="choice-button super-choice"
+                data-super-result="wrong">
+
+                💳
+                <span>
+                    Super is another type of everyday spending money.
+                </span>
+
+            </button>
+
+            <button
+                class="choice-button super-choice"
+                data-super-result="wrong">
+
+                ❌
+                <span>
+                    Super means your employer has forgotten to pay you.
+                </span>
+
+            </button>
+
+        </div>
+
+
+        <div
+            class="feedback-box"
+            id="superFeedback"
+            style="display:none;">
+
+        </div>
+
+
+        <button
+            class="primary-button"
+            id="superNext"
+            style="display:none;">
+
+            Continue →
+
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- SUPER RESPONSIBILITY -->
+    <!-- ========================= -->
+
+    <section
+        class="screen"
+        id="superResponsibilityScreen">
+
+        <div class="responsibility-icon">
+            🏦
+        </div>
+
+        <h1>Responsibility Unlocked!</h1>
+
+        <div class="responsibility-card">
+
+            <div class="check-icon">
+                ✓
+            </div>
+
+            <h2>Super Responsibility</h2>
+
+            <p>
+                I understand that my employer may make super contributions to support me in the future.
+            </p>
+
+        </div>
+
+        <div class="badge-unlock">
+
+            🏅
+            <strong>
+                Future Planner
+            </strong>
+
+        </div>
+
+        <button
+            class="primary-button"
+            id="superResponsibilityNext">
+
+            Continue →
+
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- FRIDAY INTRO -->
+    <!-- ========================= -->
+
+    <section
+        class="screen"
+        id="fridayScreen">
+
+        <div class="day-badge">
+            📅 FRIDAY
+        </div>
+
+        <div class="phone-lock-icon">
+            📱
+        </div>
+
+        <h1>📩 New Message</h1>
+
+        <div class="notification-preview">
+
+            👔 <strong>Manager</strong>
+
+            <p>
+                "Please come to my office when you have a moment. I'd like to talk about your first week."
+            </p>
+
+        </div>
+
+        <button
+            class="primary-button"
+            id="fridayInterviewButton">
+
+            Go To Manager's Office →
+
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- CHALLENGE INTRO -->
+    <!-- ========================= -->
+
+    <section
+        class="screen"
+        id="challengeIntroScreen">
+
+        <div class="manager-avatar">
+            👔
+        </div>
+
+        <h1>Final Employee Check-In</h1>
+
+        <div class="speech-card">
+
+            <span class="speaker-name">
+                Manager
+            </span>
+
+            <p>
+                Congratulations,
+                <strong id="challengeName">
+                    Employee
+                </strong>!
+            </p>
+
+            <p>
+                You've made it through your first week.
+            </p>
+
+            <p>
+                Before I officially welcome you to the team, I'd like to ask you five workplace questions.
+            </p>
+
+            <p>
+                These aren't about memorising definitions. Think about what you would actually do in a real workplace.
+            </p>
+
+        </div>
+
+
+        <div class="challenge-topics">
+
+            <span>📄 TFN</span>
+            <span>💰 Tax</span>
+            <span>🧾 Payslip</span>
+            <span>🏦 Super</span>
+
+        </div>
+
+
+        <button
+            class="primary-button"
+            id="beginChallengeButton">
+
+            🚀 Begin Interview
+
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- FINAL INTERVIEW -->
+    <!-- ========================= -->
+
+    <section
+        class="screen"
+        id="finalTestScreen">
+
+        <div class="day-badge">
+            📅 FRIDAY
+        </div>
+
+        <h1>👔 Workplace Interview</h1>
+
+        <div class="question-progress">
+
+            <span id="questionNumber">
+                Question 1 of 5
+            </span>
+
+            <div class="progress-track">
+
+                <div
+                    class="progress-fill"
+                    id="questionProgress">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="interview-card">
+
+            <div class="manager-small">
+                👔
+            </div>
+
+            <p id="finalQuestion">
+                Question goes here.
+            </p>
+
+        </div>
+
+
+        <div
+            id="finalAnswers"
+            class="answer-container">
+
+        </div>
+
+
+        <div
+            id="testFeedback"
+            class="feedback-box"
+            style="display:none;">
+
+        </div>
+
+
+        <button
+            class="primary-button"
+            id="nextQuestionButton"
+            style="display:none;">
+
+            Next Question →
+
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- WEEKLY REPORT -->
+    <!-- ========================= -->
+
+    <section
+        class="screen"
+        id="weeklyReportScreen">
+
+        <div class="report-icon">
+            📊
+        </div>
+
+        <h1>Weekly Report</h1>
+
+        <p>
+            Here's how you performed during your first week.
+        </p>
+
+
+        <div class="report-card">
+
+            <div class="report-row">
+
+                <span>
+                    Employee
+                </span>
+
+                <strong id="reportName">
+                    Employee
+                </strong>
+
+            </div>
+
+
+            <div class="report-row">
+
+                <span>
+                    Career Rank
+                </span>
+
+                <strong id="reportCareer">
+                    Workplace Ready
+                </strong>
+
+            </div>
+
+
+            <div class="report-row">
+
+                <span>
+                    Reputation
+                </span>
+
+                <strong id="reportReputation">
+                    ⭐⭐⭐☆☆
+                </strong>
+
+            </div>
+
+
+            <div class="report-row">
+
+                <span>
+                    Achievements
+                </span>
+
+                <strong id="reportAchievements">
+                    0/6
+                </strong>
+
+            </div>
+
+
+            <div class="report-row">
+
+                <span>
+                    Responsibilities
+                </span>
+
+                <strong id="reportResponsibilities">
+                    0/4
+                </strong>
+
+            </div>
+
+
+            <div class="report-row">
+
+                <span>
+                    Interview Score
+                </span>
+
+                <strong id="reportScore">
+                    0/5
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="manager-feedback">
+
+            <div class="manager-small">
+                👔
+            </div>
+
+            <p id="managerFinalFeedback">
+                Great work!
+            </p>
+
+        </div>
+
+
+        <button
+            class="primary-button"
+            id="certificateButton">
+
+            🎓 View Certificate
+
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- CERTIFICATE -->
+    <!-- ========================= -->
+
+    <section
+        class="screen"
+        id="certificateScreen">
+
+        <div class="certificate">
+
+            <div class="certificate-top">
+                🏆
+            </div>
+
+            <p class="certificate-small">
+                CERTIFICATE OF COMPLETION
+            </p>
+
+            <h1>
+                My First Job
+            </h1>
+
+            <p>
+                This certifies that
+            </p>
+
+            <h2 id="certificateName">
+                Employee
+            </h2>
+
+            <p>
+                has successfully completed the
+                <strong>Workplace Ready</strong>
+                experience.
+            </p>
+
+
+            <div class="certificate-list">
+
+                <div>
+                    ✓ Providing a TFN
+                </div>
+
+                <div>
+                    ✓ Understanding tax deductions
+                </div>
+
+                <div>
+                    ✓ Reading payslips
+                </div>
+
+                <div>
+                    ✓ Understanding superannuation
+                </div>
+
+                <div>
+                    ✓ Workplace responsibilities
+                </div>
+
+            </div>
+
+
+            <div class="certificate-status">
+
+                🏆
+                <strong id="certificateRank">
+                    WORKPLACE READY
+                </strong>
+
+            </div>
+
+
+            <p class="certificate-date">
+                Completed: <span id="certificateDate"></span>
+            </p>
+
+        </div>
+
+
+        <button
+            class="primary-button"
+            id="playAgainButton">
+
+            🔄 Play Again
+
+        </button>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- ACHIEVEMENTS -->
+    <!-- ========================= -->
+
+    <section
+        class="screen"
+        id="achievementsScreen">
+
+        <button
+            class="back-button"
+            id="achievementsBackButton">
+
+            ← Back
+
+        </button>
+
+        <h1>🏅 Achievements</h1>
+
+        <div class="achievement-list">
+
+            <div
+                class="achievement"
+                id="badgeTFN">
+
+                <span>📄</span>
+
+                <div>
+                    <strong>TFN Starter</strong>
+                    <p>Learned why a TFN is important.</p>
+                </div>
+
+            </div>
+
+
+            <div
+                class="achievement"
+                id="badgeShift">
+
+                <span>💼</span>
+
+                <div>
+                    <strong>First Shift</strong>
+                    <p>Completed your first shift.</p>
+                </div>
+
+            </div>
+
+
+            <div
+                class="achievement"
+                id="badgePayslip">
+
+                <span>🧾</span>
+
+                <div>
+                    <strong>Payslip Pro</strong>
+                    <p>Opened your first payslip.</p>
+                </div>
+
+            </div>
+
+
+            <div
+                class="achievement"
+                id="badgeTax">
+
+                <span>💰</span>
+
+                <div>
+                    <strong>Tax Explorer</strong>
+                    <p>Learned about tax deductions.</p>
+                </div>
+
+            </div>
+
+
+            <div
+                class="achievement"
+                id="badgeSuper">
+
+                <span>🏦</span>
+
+                <div>
+                    <strong>Future Planner</strong>
+                    <p>Learned about superannuation.</p>
+                </div>
+
+            </div>
+
+
+            <div
+                class="achievement"
+                id="badgeChampion">
+
+                <span>🏆</span>
+
+                <div>
+                    <strong>Workplace Champion</strong>
+                    <p>Completed the final challenge.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- RESPONSIBILITIES -->
+    <!-- ========================= -->
+
+    <section
+        class="screen"
+        id="responsibilitiesScreen">
+
+        <button
+            class="back-button"
+            id="responsibilitiesBackButton">
+
+            ← Back
+
+        </button>
+
+        <h1>📚 Responsibilities</h1>
+
+        <p>
+            Your knowledge grows throughout the week.
+        </p>
+
+
+        <div class="responsibility-list">
+
+            <div
+                class="responsibility-item"
+                id="responsibilityTFN">
+
+                <span class="responsibility-check">
+                    ○
+                </span>
+
+                <div>
+
+                    <strong>
+                        TFN
+                    </strong>
+
+                    <p>
+                        Understand why your employer needs your TFN.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="responsibility-item"
+                id="responsibilityTax">
+
+                <span class="responsibility-check">
+                    ○
+                </span>
+
+                <div>
+
+                    <strong>
+                        Tax
+                    </strong>
+
+                    <p>
+                        Understand why tax may be deducted from your pay.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="responsibility-item"
+                id="responsibilityPayslip">
+
+                <span class="responsibility-check">
+                    ○
+                </span>
+
+                <div>
+
+                    <strong>
+                        Payslip
+                    </strong>
+
+                    <p>
+                        Know why checking your payslip is important.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="responsibility-item"
+                id="responsibilitySuper">
+
+                <span class="responsibility-check">
+                    ○
+                </span>
+
+                <div>
+
+                    <strong>
+                        Superannuation
+                    </strong>
+
+                    <p>
+                        Understand employer super contributions.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="responsibility-progress">
+
+            <strong id="responsibilityProgressText">
+                0/4 Responsibilities Mastered
+            </strong>
+
+            <div class="progress-track">
+
+                <div
+                    class="progress-fill"
+                    id="responsibilityProgressFill">
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- PHONE NAVIGATION -->
+    <!-- ========================= -->
+
+    <div
+        class="phone-nav"
+        id="phoneNav"
+        style="display:none;">
+
+        <button
+            id="navHome">
+
+            🏠
+            <span>Home</span>
+
+        </button>
+
+        <button
+            id="navAchievements">
+
+            🏅
+            <span>Badges</span>
+
+        </button>
+
+        <button
+            id="navResponsibilities">
+
+            📚
+            <span>Learned</span>
+
+        </button>
+
+        <button
+            id="navProfile">
+
+            👤
+            <span>Profile</span>
+
+        </button>
+
+    </div>
+
 
 </div>
 
 
-
-
-<div class="progress-container">
-
-<p id="stageText">
-Stage: Starting Journey
-</p>
-
-
-<div class="progress">
-
-<div id="progressBar"></div>
-
-</div>
-
-</div>
-
-
-
-
-
-
-
-
-<!-- HOME -->
-
-<section class="screen active" id="homeScreen">
-
-
-<div class="app-icon">
-💼
-</div>
-
-
-<h1>
-My First Job
-</h1>
-
-
-<p>
-Your journey from beginner employee to career success.
-</p>
-
-
-<button onclick="startGame()">
-
-Start Journey 🚀
-
-</button>
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- PROFILE -->
-
-<section class="screen" id="profileScreen">
-
-
-<h1>
-👤 Create Employee
-</h1>
-
-
-<p>
-Create your worker profile.
-</p>
-
-
-
-<input 
-id="playerName"
-placeholder="Enter your name">
-
-
-
-
-
-<h3>
-Choose Avatar
-</h3>
-
-
-
-<div class="avatars">
-
-
-<button class="avatar" onclick="chooseAvatar('😀')">
-😀
-</button>
-
-
-<button class="avatar" onclick="chooseAvatar('😎')">
-😎
-</button>
-
-
-<button class="avatar" onclick="chooseAvatar('🧑‍💼')">
-🧑‍💼
-</button>
-
-
-<button class="avatar" onclick="chooseAvatar('🧑‍🎓')">
-🧑‍🎓
-</button>
-
-
-
-</div>
-
-
-
-<button onclick="createProfile()">
-
-Continue
-
-</button>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- WELCOME -->
-
-<section class="screen" id="welcomeScreen">
-
-
-<h1>
-🎉 Welcome!
-</h1>
-
-
-<p id="welcomeMessage"></p>
-
-
-
-<div class="stats-card">
-
-
-<h2>
-Employee Stats
-</h2>
-
-
-<p>
-⭐ XP:
-<span id="xp">0</span>
-</p>
-
-
-<p>
-💰 Money:
-$<span id="money">0</span>
-</p>
-
-
-<p>
-⚡ Energy:
-<span id="energy">100</span>%
-</p>
-
-
-<p>
-🏆 Reputation:
-<span id="reputation">0</span>
-</p>
-
-
-</div>
-
-
-
-
-<button onclick="nextScreen('trainingScreen')">
-
-Start Training
-
-</button>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- TRAINING -->
-
-<section class="screen" id="trainingScreen">
-
-
-<h1>
-📚 Workplace Training
-</h1>
-
-
-
-<div class="story-card">
-
-
-<p>
-Before starting your first job, your manager teaches you important workplace skills.
-</p>
-
-
-<p>
-You learn about:
-</p>
-
-
-<p>📄 Tax File Numbers</p>
-
-<p>💰 Tax</p>
-
-<p>🧾 Payslips</p>
-
-<p>🏦 Superannuation</p>
-
-
-
-</div>
-
-
-
-
-<button onclick="completeTraining()">
-
-Complete Training
-
-</button>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- JOB -->
-
-<section class="screen" id="jobScreen">
-
-
-<h1>
-💼 Choose Your First Job
-</h1>
-
-
-<p>
-Your first career decision begins here.
-</p>
-
-
-
-
-
-<div class="job-card">
-
-
-<h2>
-🍔 Fast Food Worker
-</h2>
-
-
-<p>
-Build teamwork and customer service skills.
-</p>
-
-
-<p>
-Pay: $25/hour
-</p>
-
-
-<button onclick="chooseJob('Fast Food Worker',25)">
-
-Choose
-
-</button>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="job-card">
-
-
-<h2>
-🛒 Retail Assistant
-</h2>
-
-
-<p>
-Develop communication skills.
-</p>
-
-
-<p>
-Pay: $27/hour
-</p>
-
-
-<button onclick="chooseJob('Retail Assistant',27)">
-
-Choose
-
-</button>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="job-card">
-
-
-<h2>
-☕ Café Worker
-</h2>
-
-
-<p>
-Improve organisation skills.
-</p>
-
-
-<p>
-Pay: $26/hour
-</p>
-
-
-<button onclick="chooseJob('Cafe Worker',26)">
-
-Choose
-
-</button>
-
-
-</div>
-
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- SHIFT -->
-
-<section class="screen" id="shiftScreen">
-
-
-<h1>
-🛠️ First Shift
-</h1>
-
-
-
-
-<div class="stats-card">
-
-
-<p>
-💰 Money:
-$<span id="shiftMoney">0</span>
-</p>
-
-
-<p>
-⭐ Work XP:
-<span id="workXP">0</span>
-</p>
-
-
-<p>
-🏆 Reputation:
-<span id="shiftRep">0</span>
-</p>
-
-
-
-</div>
-
-
-
-
-
-
-<div class="story-card">
-
-
-<p>
-A customer approaches you with a problem.
-</p>
-
-
-<h3>
-What should you do?
-</h3>
-
-
-</div>
-
-
-
-
-<button onclick="shiftChoice(1)">
-
-Help the customer politely
-
-</button>
-
-
-
-<button onclick="shiftChoice(2)">
-
-Ask your manager for advice
-
-</button>
-
-
-
-<button onclick="shiftChoice(3)">
-
-Ignore the customer
-
-</button>
-
-
-
-<p id="shiftFeedback"></p>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- CAREER -->
-
-<section class="screen" id="careerScreen">
-
-
-<h1>
-📈 Career Progress
-</h1>
-
-
-
-<div class="stats-card">
-
-
-<h2 id="careerTitle">
-
-Employee
-
-</h2>
-
-
-<p>
-Level:
-<span id="careerLevel">
-1
-</span>
-</p>
-
-
-<p>
-Work XP:
-<span id="careerXP">
-0
-</span>
-</p>
-
-
-</div>
-
-
-
-<div class="story-card">
-
-
-<p id="careerMessage"></p>
-
-
-</div>
-
-
-
-
-<button onclick="nextEvent()">
-
-Continue
-
-</button>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- EVENT -->
-
-<section class="screen" id="eventScreen">
-
-
-<h1>
-🎲 Workplace Event
-</h1>
-
-
-
-<div class="story-card">
-
-
-<h2 id="eventTitle"></h2>
-
-
-<p id="eventText"></p>
-
-
-</div>
-
-
-
-
-<button onclick="eventChoice(1)">
-
-Choice 1
-
-</button>
-
-
-
-<button onclick="eventChoice(2)">
-
-Choice 2
-
-</button>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- ENDING -->
-
-<section class="screen" id="endingScreen">
-
-
-<h1>
-🏆 Career Ending
-</h1>
-
-
-
-<div class="certificate">
-
-
-<h2 id="endingTitle"></h2>
-
-
-<p id="endingText"></p>
-
-
-</div>
-
-
-
-
-<h2>
-Badges
-</h2>
-
-
-
-<div id="badgeList"></div>
-
-
-
-
-<button onclick="restartGame()">
-
-🔄 Play Again
-
-</button>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-</div>
-
+<!-- ========================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================= -->
 
 <script src="script.js"></script>
 
-
 </body>
-
 </html>
