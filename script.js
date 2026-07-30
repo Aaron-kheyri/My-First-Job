@@ -3101,6 +3101,72 @@ window.restartGame = restartGame;
 
 window.showNotification = showNotification;
 window.notifyPayslip = notifyPayslip;
+/* =========================================================
+   HOME BUTTON CONNECTIONS
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* START BUTTON */
+
+    const startButton = document.getElementById("startButton");
+
+    if (startButton) {
+
+        startButton.addEventListener("click", () => {
+
+            startGame();
+
+        });
+
+    }
+
+
+    /* HOW TO PLAY BUTTON */
+
+    const aboutButton = document.getElementById("aboutButton");
+
+    if (aboutButton) {
+
+        aboutButton.addEventListener("click", () => {
+
+            showAboutScreen();
+
+        });
+
+    }
+
+
+    /* BACK BUTTON */
+
+    const aboutBackButton =
+        document.getElementById("aboutBackButton");
+
+    if (aboutBackButton) {
+
+        aboutBackButton.addEventListener("click", () => {
+
+            showScreen("homeScreen");
+
+        });
+
+    }
+
+});
+
+
+/* =========================================================
+   HOW TO PLAY
+   ========================================================= */
+
+function showAboutScreen() {
+
+    showScreen("aboutScreen");
+
+}
+
+
+window.showAboutScreen = showAboutScreen;
 
 
 /* =========================================================
