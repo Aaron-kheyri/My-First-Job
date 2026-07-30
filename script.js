@@ -2958,6 +2958,107 @@ document.addEventListener("DOMContentLoaded", () => {
    ========================================================= */
 
 window.startGame = startGame;
+/* =========================================================
+   HOME SCREEN BUTTONS
+   ========================================================= */
+
+function howToPlay() {
+
+    setHTML("howToPlayScreen", `
+
+        <div class="day-badge">
+            HOW TO PLAY
+        </div>
+
+        <h1>How does the game work? 🎮</h1>
+
+        <div class="info-card">
+
+            <h3>📅 Live your first week</h3>
+
+            <p>
+                You'll experience five days at your first job.
+                Each day introduces new situations and decisions.
+            </p>
+
+        </div>
+
+        <div class="info-card">
+
+            <h3>🧠 Learn as you play</h3>
+
+            <p>
+                You'll learn about your TFN, tax, superannuation
+                and payslips through conversations, decisions
+                and challenges.
+            </p>
+
+        </div>
+
+        <div class="info-card">
+
+            <h3>⭐ Earn XP & reputation</h3>
+
+            <p>
+                Make good decisions, answer questions correctly
+                and build your workplace reputation.
+            </p>
+
+        </div>
+
+        <div class="info-card">
+
+            <h3>🏆 Your choices matter</h3>
+
+            <p>
+                Your performance affects your career progress
+                and which ending you receive.
+            </p>
+
+        </div>
+
+        <div class="info-card">
+
+            <h3>🏅 Collect badges</h3>
+
+            <p>
+                Complete achievements throughout the week
+                and try to unlock them all.
+            </p>
+
+        </div>
+
+        <button
+            class="primary-button"
+            onclick="startGame()"
+        >
+            🚀 Start My First Job
+        </button>
+
+        <button
+            class="secondary-button"
+            onclick="goHome()"
+        >
+            ← Back
+        </button>
+
+    `);
+
+    showScreen("howToPlayScreen");
+}
+
+
+function goHome() {
+
+    showScreen("homeScreen");
+
+}
+
+
+/* Make the buttons available to index.html */
+
+window.howToPlay = howToPlay;
+window.goHome = goHome;
 window.chooseAvatar = chooseAvatar;
 window.finishProfile = finishProfile;
 
