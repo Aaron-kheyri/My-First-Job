@@ -17,10 +17,13 @@
 
 
 <div class="status-bar">
+
 <span>📶</span>
 <span>My First Job</span>
 <span>🔋</span>
+
 </div>
+
 
 
 
@@ -30,23 +33,31 @@
 Stage: Starting Journey
 </p>
 
+
 <div class="progress">
+
 <div id="progressBar"></div>
-</div>
 
 </div>
 
+</div>
 
 
 
 
-<!-- HOME SCREEN -->
+
+
+
+
+<!-- HOME -->
 
 <section class="screen active" id="homeScreen">
+
 
 <div class="app-icon">
 💼
 </div>
+
 
 <h1>
 My First Job
@@ -59,11 +70,14 @@ Your journey from beginner employee to career success.
 
 
 <button onclick="startGame()">
+
 Start Journey 🚀
+
 </button>
 
 
 </section>
+
 
 
 
@@ -76,6 +90,7 @@ Start Journey 🚀
 
 <section class="screen" id="profileScreen">
 
+
 <h1>
 👤 Create Employee
 </h1>
@@ -86,7 +101,12 @@ Create your worker profile.
 </p>
 
 
-<input id="playerName" placeholder="Enter your name">
+
+<input 
+id="playerName"
+placeholder="Enter your name">
+
+
 
 
 
@@ -95,23 +115,29 @@ Choose Avatar
 </h3>
 
 
+
 <div class="avatars">
 
-<button onclick="chooseAvatar('😀')">
+
+<button class="avatar" onclick="chooseAvatar('😀')">
 😀
 </button>
 
-<button onclick="chooseAvatar('😎')">
+
+<button class="avatar" onclick="chooseAvatar('😎')">
 😎
 </button>
 
-<button onclick="chooseAvatar('🧑‍💼')">
+
+<button class="avatar" onclick="chooseAvatar('🧑‍💼')">
 🧑‍💼
 </button>
 
-<button onclick="chooseAvatar('🧑‍🎓')">
+
+<button class="avatar" onclick="chooseAvatar('🧑‍🎓')">
 🧑‍🎓
 </button>
+
 
 
 </div>
@@ -119,11 +145,15 @@ Choose Avatar
 
 
 <button onclick="createProfile()">
+
 Continue
+
 </button>
 
 
+
 </section>
+
 
 
 
@@ -145,7 +175,9 @@ Continue
 <p id="welcomeMessage"></p>
 
 
+
 <div class="stats-card">
+
 
 <h2>
 Employee Stats
@@ -154,34 +186,25 @@ Employee Stats
 
 <p>
 ⭐ XP:
-<span id="xp">
-0
-</span>
+<span id="xp">0</span>
 </p>
 
 
 <p>
 💰 Money:
-$
-<span id="money">
-0
-</span>
+$<span id="money">0</span>
 </p>
 
 
 <p>
 ⚡ Energy:
-<span id="energy">
-100
-</span>%
+<span id="energy">100</span>%
 </p>
 
 
 <p>
 🏆 Reputation:
-<span id="reputation">
-0
-</span>
+<span id="reputation">0</span>
 </p>
 
 
@@ -189,9 +212,13 @@ $
 
 
 
+
 <button onclick="nextScreen('trainingScreen')">
+
 Start Training
+
 </button>
+
 
 
 </section>
@@ -214,11 +241,12 @@ Start Training
 </h1>
 
 
+
 <div class="story-card">
 
 
 <p>
-Before starting work, your manager teaches you the basics.
+Before starting your first job, your manager teaches you important workplace skills.
 </p>
 
 
@@ -227,30 +255,27 @@ You learn about:
 </p>
 
 
-<p>
-📄 Tax File Numbers
-</p>
+<p>📄 Tax File Numbers</p>
 
-<p>
-💰 Tax
-</p>
+<p>💰 Tax</p>
 
-<p>
-🧾 Payslips
-</p>
+<p>🧾 Payslips</p>
 
-<p>
-🏦 Superannuation
-</p>
+<p>🏦 Superannuation</p>
+
 
 
 </div>
 
 
 
+
 <button onclick="completeTraining()">
+
 Complete Training
+
 </button>
+
 
 
 </section>
@@ -263,18 +288,18 @@ Complete Training
 
 
 
-<!-- JOB CHOICE -->
+<!-- JOB -->
 
 <section class="screen" id="jobScreen">
 
 
 <h1>
-💼 Choose Your Career
+💼 Choose Your First Job
 </h1>
 
 
 <p>
-Your first decision will shape your career path.
+Your first career decision begins here.
 </p>
 
 
@@ -290,23 +315,24 @@ Your first decision will shape your career path.
 
 
 <p>
-Skills:
-Teamwork + Customer Service
+Build teamwork and customer service skills.
 </p>
 
 
 <p>
-Pay:
-$25/hour
+Pay: $25/hour
 </p>
 
 
 <button onclick="chooseJob('Fast Food Worker',25)">
+
 Choose
+
 </button>
 
 
 </div>
+
 
 
 
@@ -322,19 +348,19 @@ Choose
 
 
 <p>
-Skills:
-Communication + Sales
+Develop communication skills.
 </p>
 
 
 <p>
-Pay:
-$27/hour
+Pay: $27/hour
 </p>
 
 
 <button onclick="chooseJob('Retail Assistant',27)">
+
 Choose
+
 </button>
 
 
@@ -355,23 +381,24 @@ Choose
 
 
 <p>
-Skills:
-Organisation + Hospitality
+Improve organisation skills.
 </p>
 
 
 <p>
-Pay:
-$26/hour
+Pay: $26/hour
 </p>
 
 
 <button onclick="chooseJob('Cafe Worker',26)">
+
 Choose
+
 </button>
 
 
 </div>
+
 
 
 
@@ -396,32 +423,27 @@ Choose
 
 
 
+
 <div class="stats-card">
 
 
 <p>
 💰 Money:
-$
-<span id="shiftMoney">
-0
-</span>
+$<span id="shiftMoney">0</span>
 </p>
 
 
 <p>
 ⭐ Work XP:
-<span id="workXP">
-0
-</span>
+<span id="workXP">0</span>
 </p>
 
 
 <p>
 🏆 Reputation:
-<span id="shiftRep">
-0
-</span>
+<span id="shiftRep">0</span>
 </p>
+
 
 
 </div>
@@ -430,13 +452,18 @@ $
 
 
 
+
 <div class="story-card">
 
-<p id="shiftStory">
 
-A customer needs help.
-
+<p>
+A customer approaches you with a problem.
 </p>
+
+
+<h3>
+What should you do?
+</h3>
 
 
 </div>
@@ -445,17 +472,25 @@ A customer needs help.
 
 
 <button onclick="shiftChoice(1)">
-Help the customer
+
+Help the customer politely
+
 </button>
+
 
 
 <button onclick="shiftChoice(2)">
-Ask your manager
+
+Ask your manager for advice
+
 </button>
 
 
+
 <button onclick="shiftChoice(3)">
-Ignore them
+
+Ignore the customer
+
 </button>
 
 
@@ -489,7 +524,9 @@ Ignore them
 
 
 <h2 id="careerTitle">
+
 Employee
+
 </h2>
 
 
@@ -502,7 +539,7 @@ Level:
 
 
 <p>
-⭐ XP:
+Work XP:
 <span id="careerXP">
 0
 </span>
@@ -513,8 +550,8 @@ Level:
 
 
 
-
 <div class="story-card">
+
 
 <p id="careerMessage"></p>
 
@@ -523,8 +560,11 @@ Level:
 
 
 
+
 <button onclick="nextEvent()">
+
 Continue
+
 </button>
 
 
@@ -539,7 +579,7 @@ Continue
 
 
 
-<!-- RANDOM EVENT -->
+<!-- EVENT -->
 
 <section class="screen" id="eventScreen">
 
@@ -549,9 +589,12 @@ Continue
 </h1>
 
 
+
 <div class="story-card">
 
+
 <h2 id="eventTitle"></h2>
+
 
 <p id="eventText"></p>
 
@@ -560,13 +603,19 @@ Continue
 
 
 
+
 <button onclick="eventChoice(1)">
+
 Choice 1
+
 </button>
 
 
+
 <button onclick="eventChoice(2)">
+
 Choice 2
+
 </button>
 
 
@@ -605,22 +654,28 @@ Choice 2
 
 
 
+
 <h2>
 Badges
 </h2>
+
 
 
 <div id="badgeList"></div>
 
 
 
+
 <button onclick="restartGame()">
+
 🔄 Play Again
+
 </button>
 
 
 
 </section>
+
 
 
 
