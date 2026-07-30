@@ -1,85 +1,242 @@
-/* =====================================
-MY FIRST JOB SIMULATOR v4.0
-STYLE
-===================================== */
+// =====================================
+// MY FIRST JOB SIMULATOR v3.4
+// FIXED SCRIPT
+// =====================================
 
 
-*{
-box-sizing:border-box;
-font-family:Arial, sans-serif;
+// PLAYER DATA
+
+let playerName = "";
+
+let playerJob = "";
+
+let playerPay = 0;
+
+let xp = 0;
+
+let money = 0;
+
+let energy = 100;
+
+let workXP = 0;
+
+let avatar = "😀";
+
+let badges = [];
+
+let testScore = 0;
+
+let currentQuestion = 0;
+
+
+
+
+
+// =====================================
+// FINAL QUESTIONS
+// =====================================
+
+
+const finalQuestions = [
+
+{
+question:
+"It's your first day at work and your manager asks you to provide your Tax File Number (TFN) before your first pay is processed. Why is giving your employer your TFN important?",
+
+answers:[
+
+"It helps your employer correctly manage your tax information when you are paid.",
+
+"It allows your employer to access your personal bank account.",
+
+"It decides how much you will be paid each hour."
+
+],
+
+correct:0
+
+},
+
+
+
+{
+question:
+"After your first shift, you notice the amount deposited into your bank account is lower than expected. What is the most likely reason?",
+
+answers:[
+
+"The bank randomly removed some money.",
+
+"Some money may have been taken as tax before you were paid.",
+
+"Your employer forgot to pay you."
+
+],
+
+correct:1
+
+},
+
+
+
+{
+question:
+"Why should you read your payslip?",
+
+answers:[
+
+"It helps you understand your earnings, tax and super contributions.",
+
+"You only read it if something goes wrong.",
+
+"Payslips are only for employers."
+
+],
+
+correct:0
+
+},
+
+
+
+{
+question:
+"Why does your employer contribute to superannuation?",
+
+answers:[
+
+"It helps save money for your future.",
+
+"It replaces your normal pay.",
+
+"It is extra spending money immediately."
+
+],
+
+correct:0
+
+},
+
+
+
+{
+question:
+"What is the most responsible thing to do after receiving your first pay?",
+
+answers:[
+
+"Understand your payslip and keep your records.",
+
+"Ignore your payslip.",
+
+"Spend everything immediately."
+
+],
+
+correct:0
+
+}
+
+];
+
+
+
+
+
+
+
+
+// =====================================
+// SCREEN SYSTEM
+// =====================================
+
+
+function nextScreen(screenID){
+
+
+document.querySelectorAll(".screen").forEach(screen=>{
+
+screen.classList.remove("active");
+
+});
+
+
+let screen = document.getElementById(screenID);
+
+
+if(screen){
+
+screen.classList.add("active");
+
+}
+
 }
 
 
 
-body{
 
-margin:0;
 
-background:linear-gradient(
-135deg,
-#667eea,
-#764ba2
+
+
+
+// =====================================
+// PROGRESS
+// =====================================
+
+
+function updateProgress(amount,stage){
+
+
+let bar =
+document.getElementById("progressBar");
+
+
+let text =
+document.getElementById("stageText");
+
+
+
+if(bar){
+
+bar.style.width = amount + "%";
+
+}
+
+
+
+if(text){
+
+text.innerHTML =
+"Stage: " + stage;
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+// =====================================
+// START
+// =====================================
+
+
+function startGame(){
+
+
+updateProgress(
+5,
+"Creating Employee Profile"
 );
 
-height:100vh;
 
-display:flex;
+nextScreen("profileScreen");
 
-justify-content:center;
-
-align-items:center;
-
-}
-
-
-
-
-
-/* PHONE */
-
-.phone{
-
-width:390px;
-
-height:750px;
-
-background:#f7f7f7;
-
-border-radius:35px;
-
-overflow:hidden;
-
-box-shadow:0 20px 50px rgba(0,0,0,0.3);
-
-position:relative;
-
-}
-
-
-
-
-
-
-
-/* STATUS BAR */
-
-.status-bar{
-
-height:45px;
-
-background:#222;
-
-color:white;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-padding:0 20px;
-
-font-size:14px;
 
 }
 
@@ -90,107 +247,93 @@ font-size:14px;
 
 
 
-/* PROGRESS */
 
-.progress-container{
+// =====================================
+// PROFILE
+// =====================================
 
-padding:15px;
 
-background:white;
+document.addEventListener(
+"DOMContentLoaded",
+function(){
+
+
+
+document.querySelectorAll(".avatar").forEach(button=>{
+
+
+button.onclick=function(){
+
+
+avatar=this.innerHTML;
+
+
+
+document.querySelectorAll(".avatar").forEach(a=>{
+
+a.style.background="#eee";
+
+});
+
+
+this.style.background="#667eea";
+
+
+};
+
+
+});
+
+
+});
+
+
+
+
+
+
+
+function createProfile(){
+
+
+
+playerName =
+document.getElementById("playerName").value;
+
+
+
+if(playerName.trim()===""){
+
+
+alert("Please enter your name!");
+
+return;
+
 
 }
 
 
 
-.progress{
 
-height:12px;
+document.getElementById("welcomeMessage").innerHTML =
 
-background:#ddd;
 
-border-radius:20px;
-
-overflow:hidden;
-
-}
+avatar + 
+" Welcome " +
+playerName +
+"! Your first job journey begins now.";
 
 
 
-#progressBar{
-
-height:100%;
-
-width:0%;
-
-background:#667eea;
-
-transition:0.5s;
-
-}
+updateProgress(
+10,
+"Learning Workplace Basics"
+);
 
 
 
+nextScreen("welcomeScreen");
 
-
-
-
-
-/* SCREENS */
-
-.screen{
-
-display:none;
-
-padding:25px;
-
-height:650px;
-
-overflow-y:auto;
-
-text-align:center;
-
-}
-
-
-
-.screen.active{
-
-display:block;
-
-}
-
-
-
-
-
-
-
-
-/* HEADINGS */
-
-h1{
-
-color:#333;
-
-font-size:28px;
-
-}
-
-
-
-h2{
-
-color:#444;
-
-}
-
-
-
-p{
-
-color:#555;
-
-line-height:1.5;
 
 }
 
@@ -201,81 +344,70 @@ line-height:1.5;
 
 
 
-/* BUTTONS */
 
-button{
+// =====================================
+// TFN QUIZ
+// =====================================
 
-width:90%;
 
-padding:14px;
+function answerTFN(correct){
 
-margin:8px;
 
-border:none;
 
-border-radius:15px;
+let feedback =
+document.getElementById("tfnFeedback");
 
-background:#667eea;
 
-color:white;
 
-font-size:16px;
+if(correct){
 
-cursor:pointer;
 
-transition:0.2s;
+xp +=10;
+
+
+
+addBadge(
+"📄 TFN Starter",
+"You learnt why a TFN is important."
+);
+
+
+
+feedback.innerHTML =
+
+"🟩 Correct! A TFN helps manage your tax information.";
+
+
+
+updateProgress(
+35,
+"Choosing Your First Job"
+);
+
+
+
+setTimeout(()=>{
+
+
+nextScreen("jobScreen");
+
+
+},2000);
+
+
 
 }
 
+else{
 
 
-button:hover{
+feedback.innerHTML =
 
-transform:scale(1.03);
+"🟥 Not quite. A TFN is used for tax purposes.";
 
-background:#5565d8;
 
 }
 
-
-
-
-
-
-
-
-/* HOME ICON */
-
-.app-icon{
-
-font-size:70px;
-
-margin-top:50px;
-
-}
-
-
-
-
-
-
-
-
-/* INPUT */
-
-input{
-
-width:90%;
-
-padding:14px;
-
-border-radius:12px;
-
-border:1px solid #ccc;
-
-font-size:16px;
-
-margin:15px;
 
 }
 
@@ -286,54 +418,39 @@ margin:15px;
 
 
 
-/* AVATARS */
 
-.avatars{
+// =====================================
+// JOB CHOICE
+// =====================================
 
-display:flex;
 
-justify-content:center;
-
-gap:10px;
-
-}
+function chooseJob(job,pay){
 
 
 
-.avatar{
+playerJob = job;
 
-width:60px;
-
-height:60px;
-
-font-size:25px;
-
-padding:0;
-
-}
+playerPay = pay;
 
 
 
+document.getElementById("jobMessage").innerHTML =
+
+
+"Congratulations! You have been accepted as a " +
+job + ".";
 
 
 
+updateProgress(
+45,
+"Starting Your First Shift"
+);
 
 
-/* CARDS */
 
-.story-card,
-.stats-card,
-.job-card{
+nextScreen("acceptedScreen");
 
-background:white;
-
-padding:20px;
-
-margin:15px 0;
-
-border-radius:20px;
-
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
 
 }
 
@@ -344,94 +461,107 @@ box-shadow:0 5px 15px rgba(0,0,0,0.1);
 
 
 
-.job-card{
 
-border-left:5px solid #667eea;
+// =====================================
+// SHIFT
+// =====================================
+
+
+function shiftChoice(choice){
+
+
+
+let feedback =
+document.getElementById("shiftFeedback");
+
+
+
+money = 250;
+
+
+
+if(choice===1){
+
+
+workXP +=5;
+
+energy -=5;
+
+
+
+feedback.innerHTML =
+
+"🟩 Great choice! You showed teamwork and customer service skills.";
+
+
 
 }
 
 
 
+else if(choice===2){
+
+
+workXP +=3;
+
+energy -=8;
 
 
 
+feedback.innerHTML =
+
+"🟩 Good choice! Asking for help is responsible.";
 
 
-/* STATS */
-
-.stats-card p{
-
-font-size:18px;
 
 }
 
 
 
+else{
+
+
+energy -=15;
 
 
 
+feedback.innerHTML =
 
+"🟥 Ignoring customers can create problems at work.";
 
-/* CERTIFICATE */
-
-.certificate{
-
-background:#fff;
-
-padding:30px;
-
-border-radius:20px;
-
-box-shadow:0 10px 25px rgba(0,0,0,0.15);
-
-border:4px solid #667eea;
 
 }
 
 
 
+document.getElementById("money").innerHTML =
+money;
+
+
+document.getElementById("workXP").innerHTML =
+workXP;
+
+
+document.getElementById("energy").innerHTML =
+energy;
 
 
 
-
-
-/* BADGES */
-
-.badge{
-
-background:#eee;
-
-padding:15px;
-
-border-radius:15px;
-
-margin:10px;
-
-font-size:16px;
-
-}
+updateProgress(
+60,
+"Receiving Your Payslip"
+);
 
 
 
+setTimeout(()=>{
 
 
+nextScreen("phoneScreen");
 
 
+},2000);
 
-/* MOBILE */
-
-@media(max-width:500px){
-
-
-.phone{
-
-width:100%;
-
-height:100vh;
-
-border-radius:0;
-
-}
 
 
 }
