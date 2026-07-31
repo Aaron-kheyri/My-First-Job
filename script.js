@@ -89,22 +89,74 @@ function get(id) {
 
 function showScreen(id) {
 
-    const screens = document.querySelectorAll(".screen");
+    /*
+       Make sure the requested screen actually exists.
+       This lets the new game work with the older HTML structure.
+    */
+
+    let target = document.getElementById(id);
+
+    if (!target) {
+
+        /*
+           Find the main phone/app container.
+        */
+
+        const container =
+            document.querySelector(".phone") ||
+            document.querySelector(".app") ||
+            document.querySelector("main") ||
+            document.body;
+
+
+        /*
+           Create the missing screen automatically.
+        */
+
+        target = document.createElement("section");
+
+        target.id = id;
+        target.className = "screen";
+
+        container.appendChild(target);
+
+    }
+
+
+    /*
+       Hide every other screen.
+    */
+
+    const screens =
+        document.querySelectorAll(".screen");
 
     screens.forEach(screen => {
+
         screen.classList.remove("active");
+
     });
 
-    const target = get(id);
 
-    if (target) {
-        target.classList.add("active");
-    }
+    /*
+       Show the requested screen.
+    */
+
+    target.classList.add("active");
+
+
+    /*
+       Scroll back to the top.
+    */
 
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
+
+
+    /*
+       Update XP, money, career progress etc.
+    */
 
     updateHeader();
 }
@@ -112,10 +164,26 @@ function showScreen(id) {
 
 function setHTML(id, html) {
 
-    const element = get(id);
+    let element = document.getElementById(id);
+
+    /*
+       If the screen doesn't exist yet,
+       create it automatically.
+    */
+
+    if (!element) {
+
+        showScreen(id);
+
+        element = document.getElementById(id);
+
+    }
+
 
     if (element) {
+
         element.innerHTML = html;
+
     }
 }
 
